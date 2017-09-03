@@ -32,9 +32,7 @@ class TabTest extends TestCase
     {
         $this->expectsEvents(TabOpened::class);
 
-        $command = new OpenTab();
-        $command->id = $this->id;
-        $command->tableNumber = $this->tableNumber;
-        $command->waiter = $this->waiter;
+        $command = OpenTab::fromTableNumberAndWaiter($this->tableNumber, $this->waiter);
+        \CommandBus::dispatch($command);
     }
 }
