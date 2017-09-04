@@ -9,7 +9,10 @@
         "fideloper/proxy": "~3.3",
         "laravel/framework": "5.5.*",
         "laravel/tinker": "~1.0",
-        "prooph/event-sourcing": "^5.2"
+        "prooph/event-sourcing": "^5.2",
+        "prooph/event-store": "^7.2",
+        "prooph/pdo-event-store": "^1.5",
+        "prooph/service-bus": "^6.0"
     },
     "require-dev": {
         "filp/whoops": "~2.0",

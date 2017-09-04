@@ -167,6 +167,7 @@ return [
         /*
          * Package Service Providers...
          */
+        \Nokios\Cafe\Providers\ProophServiceProvider::class,
 
         /*
          * Application Service Providers...
