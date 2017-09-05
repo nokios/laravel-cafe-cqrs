@@ -2,11 +2,11 @@
 
 namespace Tests\Feature;
 
-use Nokios\Cafe\Domain\Commands\OpenTab;
-use Nokios\Cafe\Domain\Events\TabOpened;
+use Nokios\Cafe\EventStream;
+use Nokios\Cafe\Tab\Commands\OpenTab;
+use Nokios\Cafe\Tab\Handlers\OpenTabHandler;
 use Ramsey\Uuid\Uuid;
 use Tests\TestCase;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class TabTest extends TestCase
 {
@@ -30,11 +30,10 @@ class TabTest extends TestCase
      */
     public function testCanOpenANewTab()
     {
-        $this->expectsEvents(TabOpened::class);
+        $command = new OpenTab($this->id, $this->tableNumber, $this->waiter);
+        $commandHandler = new OpenTabHandler($command);
+        $commandHandler->handle();
 
-        $command = new OpenTab();
-        $command->id = $this->id;
-        $command->tableNumber = $this->tableNumber;
-        $command->waiter = $this->waiter;
+        $this->assertEquals(1, EventStream::forAggregateId($this->id)->count());
     }
 }
