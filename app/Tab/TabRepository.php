@@ -23,11 +23,15 @@ class TabRepository
     /**
      * @param \Ramsey\Uuid\Uuid $uuid
      *
-     * @return Tab
+     * @return Tab|null
      */
     public function load(Uuid $uuid)
     {
         $events = $this->eventStoreRepository->load($uuid);
+
+        if (empty($events)) {
+            return null;
+        }
 
         return Tab::initializeState($events);
     }
