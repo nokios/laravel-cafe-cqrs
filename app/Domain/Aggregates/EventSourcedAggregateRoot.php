@@ -37,7 +37,7 @@ abstract class EventSourcedAggregateRoot implements AggregateRootInterface
     {
         $aggregateRoot = new static;
          collect($events)->each(function ($event) use ($aggregateRoot) {
-             $aggregateRoot->apply($event);
+             $aggregateRoot->handle($event);
          });
 
          return $aggregateRoot;

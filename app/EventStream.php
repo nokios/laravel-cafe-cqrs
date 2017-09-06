@@ -3,6 +3,7 @@
 namespace Nokios\Cafe;
 
 use Illuminate\Database\Eloquent\Model;
+use Nokios\Cafe\Domain\Events\SerializableEvent;
 use Ramsey\Uuid\Uuid;
 
 /**
@@ -28,4 +29,15 @@ class EventStream extends Model
             ->get();
     }
 
+    /**
+     * @return SerializableEvent
+     */
+    public function toEvent()
+    {
+        /** @var SerializableEvent $className */
+        $className = $this->payload['class'];
+        $payload = $this->payload['payload'];
+
+        return $className::fromPayload($payload);
+    }
 }

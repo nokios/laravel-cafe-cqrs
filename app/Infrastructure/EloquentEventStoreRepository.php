@@ -30,13 +30,8 @@ class EloquentEventStoreRepository implements EventStoreRepository
         $events = EventStream::forAggregateId($uuid);
 
         return $events->map(function (EventStream $event) {
-            /** @var SerializableEvent $className */
-            $className = $event->payload['class'];
-            $payload = $event->payload['payload'];
-
-            return $className::fromPayload($payload);
-        })
+                return $event->toEvent();
+            })
             ->all();
-
     }
 }

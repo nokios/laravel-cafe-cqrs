@@ -28,7 +28,7 @@ class DrinksOrdered implements SerializableEvent
     /**
      * @return \Ramsey\Uuid\Uuid
      */
-    public function getTabId(): \Ramsey\Uuid\Uuid
+    public function getTabId(): Uuid
     {
         return $this->tabId;
     }
@@ -47,8 +47,10 @@ class DrinksOrdered implements SerializableEvent
     public function getPayload(): array
     {
         return [
-            'tabId' => $this->getTabId(),
-            'items' => $this->getItems()
+            'tabId' => $this->getTabId()->toString(),
+            'items' => collect($this->getItems())->map(function (OrderedItem $item) {
+                return $item->getPayload();
+            })->all()
         ];
     }
 
@@ -57,11 +59,13 @@ class DrinksOrdered implements SerializableEvent
      *
      * @return static
      */
-    public static function fromPayload(array $data)
+    public static function fromPayload(array $data) : DrinksOrdered
     {
         return new static(
-            array_get($data, 'tabId'),
-            array_get($data, 'items')
+            Uuid::fromString(array_get($data, 'tabId')),
+            collect(array_get($data, 'items'))->map(function (array $data) {
+                return OrderedItem::fromPayload($data);
+            })->all()
         );
     }
 }

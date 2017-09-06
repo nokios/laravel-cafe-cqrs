@@ -11,7 +11,7 @@ use Nokios\Cafe\Tab\TabRepository;
 class PlaceOrderHandler
 {
     /**
-     * @var \Nokios\Cafe\Tab\Commands\OpenTab
+     * @var \Nokios\Cafe\Tab\Commands\PlaceOrder
      */
     protected $command;
 
@@ -34,5 +34,9 @@ class PlaceOrderHandler
         if (! $tab) {
             throw new TabNotOpened("No Tab with that ID found");
         }
+
+        $tab->placeOrder($this->command->getItems());
+
+        $tabRepository->save($tab);
     }
 }
