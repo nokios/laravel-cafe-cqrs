@@ -6,7 +6,7 @@ namespace Nokios\Cafe\Tab\Commands;
 
 use Ramsey\Uuid\Uuid;
 
-class MarkDrinksServed
+class MarkFoodServed
 {
     /** @var \Ramsey\Uuid\Uuid */
     private $tabId;

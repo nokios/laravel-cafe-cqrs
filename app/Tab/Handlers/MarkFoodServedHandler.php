@@ -1,18 +1,15 @@
 <?php
 
-
 namespace Nokios\Cafe\Tab\Handlers;
 
-
-use Nokios\Cafe\Tab\Commands\MarkDrinksServed;
-use Nokios\Cafe\Tab\Events\DrinksServed;
+use Nokios\Cafe\Tab\Commands\MarkFoodServed;
 use Nokios\Cafe\Tab\Exceptions\TabNotOpened;
 use Nokios\Cafe\Tab\TabRepository;
 
-class MarkDrinksServedHandler
+class MarkFoodServedHandler
 {
     /**
-     * @var \Nokios\Cafe\Tab\Commands\MarkDrinksServed
+     * @var \Nokios\Cafe\Tab\Commands\MarkFoodServed
      */
     protected $command;
 
@@ -21,7 +18,7 @@ class MarkDrinksServedHandler
      *
      * @param $command
      */
-    public function __construct(MarkDrinksServed $command)
+    public function __construct(MarkFoodServed $command)
     {
         $this->command = $command;
     }
@@ -35,8 +32,8 @@ class MarkDrinksServedHandler
         if (! $tab) {
             throw new TabNotOpened("No Tab with that ID found");
         }
-        // @todo: Add handling here
-        $tab->serveDrinks($this->command->getMenuNumbers());
+
+        $tab->serveFood($this->command->getMenuNumbers());
 
         $tabRepository->save($tab);
     }

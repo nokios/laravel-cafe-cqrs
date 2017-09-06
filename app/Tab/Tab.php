@@ -4,9 +4,13 @@ namespace Nokios\Cafe\Tab;
 
 use Nokios\Cafe\Domain\Aggregates\EventSourcedAggregateRoot;
 use Nokios\Cafe\Tab\Events\DrinksOrdered;
+use Nokios\Cafe\Tab\Events\DrinksServed;
 use Nokios\Cafe\Tab\Events\FoodOrdered;
+use Nokios\Cafe\Tab\Events\FoodServed;
 use Nokios\Cafe\Tab\Events\OrderedItem;
 use Nokios\Cafe\Tab\Events\TabOpened;
+use Nokios\Cafe\Tab\Exceptions\DrinksNotOutstanding;
+use Nokios\Cafe\Tab\Exceptions\FoodNotOutstanding;
 use Nokios\Cafe\Tab\Exceptions\TabNotOpened;
 use Ramsey\Uuid\Uuid;
 
@@ -76,6 +80,30 @@ class Tab extends EventSourcedAggregateRoot
         }
     }
 
+    public function serveDrinks(array $orderedItems)
+    {
+        if (! $this->areDrinksOutstanding($orderedItems)) {
+            throw new DrinksNotOutstanding;
+        }
+
+        $this->apply(new DrinksServed(
+            $this->getId(),
+            $orderedItems
+        ));
+    }
+
+    public function serveFood(array $orderedItems)
+    {
+        if (! $this->areFoodOutstanding($orderedItems)) {
+            throw new FoodNotOutstanding;
+        }
+
+        $this->apply(new FoodServed(
+            $this->getId(),
+            $orderedItems
+        ));
+    }
+
     public function getId() : Uuid
     {
         return $this->uuid;
@@ -97,6 +125,33 @@ class Tab extends EventSourcedAggregateRoot
         return $this->waiter;
     }
 
+    private function areDrinksOutstanding(array $items) : bool
+    {
+        // For each item in question check if it is in the outstanding list.
+        // If it is in the outstanding list,
+        return collect($items)->filter(function (OrderedItem $drinkInQuestion) {
+
+            return $this->outstandingDrinks->filter(function (OrderedItem $outstandingDrink) use ($drinkInQuestion) {
+                return $drinkInQuestion->getMenuNumber() == $outstandingDrink->getMenuNumber();
+            })->isEmpty();
+
+        })->isEmpty();
+    }
+
+
+    private function areFoodOutstanding(array $items) : bool
+    {
+        // For each item in question check if it is in the outstanding list.
+        // If it is in the outstanding list,
+        return collect($items)->filter(function (OrderedItem $foodInQuestion) {
+
+            return $this->outstandingFood->filter(function (OrderedItem $outstandingFood) use ($foodInQuestion) {
+                return $foodInQuestion->getMenuNumber() == $outstandingFood->getMenuNumber();
+            })->isEmpty();
+
+        })->isEmpty();
+    }
+
     /**
      * @param \Nokios\Cafe\Tab\Events\TabOpened $event
      */
@@ -110,11 +165,26 @@ class Tab extends EventSourcedAggregateRoot
 
     protected function applyDrinksOrdered(DrinksOrdered $event)
     {
-        $this->outstandingDrinks->merge($event->getItems());
+        $this->outstandingDrinks = $this->outstandingDrinks->merge($event->getItems());
     }
 
     protected function applyFoodOrdered(FoodOrdered $event)
     {
-        $this->outstandingFood->merge($event->getItems());
+        $this->outstandingFood = $this->outstandingFood->merge($event->getItems());
+    }
+
+    protected function applyDrinksServed(DrinksServed $event)
+    {
+        $servedDrinks = collect($event->getMenuNumbers());
+
+        $servedDrinks->each(function (OrderedItem $orderedDrink) {
+            $this->outstandingDrinks->forget(
+                $this->outstandingDrinks->search(function (OrderedItem $outstandingDrink) use ($orderedDrink) {
+                    return $orderedDrink->getMenuNumber() == $outstandingDrink->getMenuNumber();
+                })
+            );
+        });
+
+        $this->outstandingDrinks = $this->outstandingDrinks->values();
     }
 }
