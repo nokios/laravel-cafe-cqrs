@@ -113,6 +113,24 @@ class TabTest extends TestCase
         ]);
     }
 
+    public function testOrderedDrinksCanBeServed()
+    {
+        $command = new OpenTab($this->id, $this->tableNumber, $this->waiter);
+        $commandHandler = new OpenTabHandler($command);
+        $commandHandler->handle();
+
+        $command = new PlaceOrder($this->id, [new OrderedItem(1, 'Coke', true, 2.50)]);
+        $commandHandler = new PlaceOrderHandler($command);
+        $commandHandler->handle();
+
+
+
+        $this->assertEventsSeen($this->id, [
+            TabOpened::class,
+            DrinksOrdered::class
+        ]);
+    }
+
     /**
      * Asserts that the given events are seen and in the correct order
      *
