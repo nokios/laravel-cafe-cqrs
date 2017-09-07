@@ -11,18 +11,18 @@ class FoodServed implements SerializableEvent
     private $tabId;
 
     /** @var array  */
-    private $menuNumbers = [];
+    private $servedItems = [];
 
     /**
      * DrinksServed constructor.
      *
      * @param \Ramsey\Uuid\Uuid $tabId
-     * @param array             $menuNumbers
+     * @param array             $servedItems
      */
-    public function __construct(Uuid $tabId, array $menuNumbers)
+    public function __construct(Uuid $tabId, array $servedItems)
     {
         $this->tabId = $tabId;
-        $this->menuNumbers = $menuNumbers;
+        $this->servedItems = $servedItems;
     }
 
     /**
@@ -36,9 +36,9 @@ class FoodServed implements SerializableEvent
     /**
      * @return array
      */
-    public function getMenuNumbers(): array
+    public function getServedItems(): array
     {
-        return $this->menuNumbers;
+        return $this->servedItems;
     }
 
     /**
@@ -48,7 +48,9 @@ class FoodServed implements SerializableEvent
     {
         return [
             'tabId' => $this->getTabId(),
-            'menuNumbers' => $this->getMenuNumbers()
+            'servedItems' => collect($this->getServedItems())->map(function (OrderedItem $item) {
+                return $item->getPayload();
+            })->all()
         ];
     }
 
@@ -61,7 +63,9 @@ class FoodServed implements SerializableEvent
     {
         return new static(
             Uuid::fromString(array_get($data, 'tabId')),
-            array_get($data, 'menuNumbers')
+            collect(array_get($data, 'servedItems'))->map(function (array $data) {
+                return OrderedItem::fromPayload($data);
+            })->all()
         );
     }
 }

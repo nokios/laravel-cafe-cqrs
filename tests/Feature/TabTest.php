@@ -4,6 +4,7 @@ namespace Tests\Feature;
 
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Nokios\Cafe\EventStream;
+use Nokios\Cafe\Tab\Commands\CloseTab;
 use Nokios\Cafe\Tab\Commands\MarkDrinksServed;
 use Nokios\Cafe\Tab\Commands\MarkFoodServed;
 use Nokios\Cafe\Tab\Commands\OpenTab;
@@ -13,7 +14,9 @@ use Nokios\Cafe\Tab\Events\DrinksServed;
 use Nokios\Cafe\Tab\Events\FoodOrdered;
 use Nokios\Cafe\Tab\Events\FoodServed;
 use Nokios\Cafe\Tab\Events\OrderedItem;
+use Nokios\Cafe\Tab\Events\TabClosed;
 use Nokios\Cafe\Tab\Events\TabOpened;
+use Nokios\Cafe\Tab\Handlers\CloseTabHandler;
 use Nokios\Cafe\Tab\Handlers\MarkDrinksServedHandler;
 use Nokios\Cafe\Tab\Handlers\MarkFoodServedHandler;
 use Nokios\Cafe\Tab\Handlers\OpenTabHandler;
@@ -235,6 +238,39 @@ class TabTest extends TestCase
         $commandHandler->handle();
     }
 
+    public function testCanCloseTabWithTip()
+    {
+        $command = new OpenTab($this->id, $this->tableNumber, $this->waiter);
+        $commandHandler = new OpenTabHandler($command);
+        $commandHandler->handle();
+
+        $command = new PlaceOrder($this->id, [$this->testFood1]);
+        $commandHandler = new PlaceOrderHandler($command);
+        $commandHandler->handle();
+
+        $command = new MarkFoodServed($this->id, [$this->testFood1]);
+        $commandHandler = new MarkFoodServedHandler($command);
+        $commandHandler->handle();
+
+        $command = new CloseTab($this->id, $this->testFood1->getPrice() + 0.50);
+        $commandHandler = new CloseTabHandler($command);
+        $commandHandler->handle();
+
+        $this->assertEventsSeen($this->id, [
+            TabOpened::class,
+            FoodOrdered::class,
+            FoodServed::class,
+            [
+                'class' => TabClosed::class,
+                'properties' => [
+                    'amountPaid' => $this->testFood1->getPrice() + 0.50,
+                    'orderValue' => $this->testFood1->getPrice(),
+                    'tipValue' => 0.50
+                ]
+            ]
+        ]);
+    }
+
     /* ---------------------------------------------------------------------------------------------------------------+
      |
      +-------------------------------------------------------------------------------------------------------------- */
@@ -254,8 +290,22 @@ class TabTest extends TestCase
 
         $this->assertEquals(count($events), $recordedEvents->count());
 
-        collect($events)->each(function ($eventClass, $index) use ($recordedEvents) {
-            $this->assertInstanceOf($eventClass, $recordedEvents[$index]);
+        collect($events)->each(function ($options, $index) use ($recordedEvents) {
+            if (is_array($options)) {
+                $eventClass = array_get($options, 'class');
+                $properties = array_get($options, 'properties');
+            } else {
+                $eventClass = $options;
+                $properties = [];
+            }
+
+            $event = $recordedEvents[$index];
+            $this->assertInstanceOf($eventClass, $event);
+
+            collect($properties)->each(function ($value, $property) use ($event) {
+                $methodName = 'get' . studly_case($property);
+                $this->assertEquals($value, $event->$methodName(), "Property Value Mismatch for $property");
+            });
         });
     }
 }

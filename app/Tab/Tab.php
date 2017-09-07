@@ -8,6 +8,7 @@ use Nokios\Cafe\Tab\Events\DrinksServed;
 use Nokios\Cafe\Tab\Events\FoodOrdered;
 use Nokios\Cafe\Tab\Events\FoodServed;
 use Nokios\Cafe\Tab\Events\OrderedItem;
+use Nokios\Cafe\Tab\Events\TabClosed;
 use Nokios\Cafe\Tab\Events\TabOpened;
 use Nokios\Cafe\Tab\Exceptions\DrinksNotOutstanding;
 use Nokios\Cafe\Tab\Exceptions\FoodNotOutstanding;
@@ -34,11 +35,18 @@ class Tab extends EventSourcedAggregateRoot
     /** @var \Illuminate\Support\Collection */
     private $outstandingFood;
 
+    /** @var \Illuminate\Support\Collection */
+    private $preparedFood;
+
+    /** @var float */
+    private $servedItemsValue = 0.0;
+
     protected function __construct()
     {
         // This makes straight instantiation not possible
         $this->outstandingDrinks = collect();
         $this->outstandingFood = collect();
+        $this->preparedFood = collect();
     }
 
     public static function openTab(Uuid $tabId, int $tableNumber, string $waiter)
@@ -101,6 +109,16 @@ class Tab extends EventSourcedAggregateRoot
         $this->apply(new FoodServed(
             $this->getId(),
             $orderedItems
+        ));
+    }
+
+    public function closeTab(float $amountPaid)
+    {
+        $this->apply(new TabClosed(
+            $this->uuid,
+            $amountPaid,
+            $this->servedItemsValue,
+            ($amountPaid - $this->servedItemsValue)
         ));
     }
 
@@ -178,13 +196,42 @@ class Tab extends EventSourcedAggregateRoot
         $servedDrinks = collect($event->getMenuNumbers());
 
         $servedDrinks->each(function (OrderedItem $orderedDrink) {
-            $this->outstandingDrinks->forget(
-                $this->outstandingDrinks->search(function (OrderedItem $outstandingDrink) use ($orderedDrink) {
-                    return $orderedDrink->getMenuNumber() == $outstandingDrink->getMenuNumber();
-                })
-            );
+            $index = $this->outstandingDrinks->search(function (OrderedItem $outstandingDrink) use ($orderedDrink) {
+                return $orderedDrink->getMenuNumber() == $outstandingDrink->getMenuNumber();
+            });
+            /** @var OrderedItem $orderedItem */
+            $orderedItem = $this->outstandingDrinks->get($index);
+            $this->servedItemsValue += $orderedItem->getPrice();
+            $this->outstandingDrinks->forget($index);
         });
 
         $this->outstandingDrinks = $this->outstandingDrinks->values();
+    }
+
+    /**
+     * @param \Nokios\Cafe\Tab\Events\FoodServed $event
+     */
+    protected function applyFoodServed(FoodServed $event)
+    {
+        $servedFood = collect($event->getServedItems());
+
+        $servedFood->each(function (OrderedItem $orderedFood) {
+            $index = $this->outstandingFood->search(function (OrderedItem $outstandingFood) use ($orderedFood) {
+                return $orderedFood->getMenuNumber() == $outstandingFood->getMenuNumber();
+            });
+
+            /** @var OrderedItem $orderedItem */
+            $orderedItem = $this->outstandingFood->get($index);
+            $this->servedItemsValue += $orderedItem->getPrice();
+
+            $this->outstandingFood->forget($index);
+        });
+
+        $this->outstandingFood = $this->outstandingFood->values();
+    }
+
+    protected function applyTabClosed(TabClosed $event)
+    {
+
     }
 }
