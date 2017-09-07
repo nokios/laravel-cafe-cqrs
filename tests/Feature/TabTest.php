@@ -6,18 +6,21 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Nokios\Cafe\EventStream;
 use Nokios\Cafe\Tab\Commands\CloseTab;
 use Nokios\Cafe\Tab\Commands\MarkDrinksServed;
+use Nokios\Cafe\Tab\Commands\MarkFoodPrepared;
 use Nokios\Cafe\Tab\Commands\MarkFoodServed;
 use Nokios\Cafe\Tab\Commands\OpenTab;
 use Nokios\Cafe\Tab\Commands\PlaceOrder;
 use Nokios\Cafe\Tab\Events\DrinksOrdered;
 use Nokios\Cafe\Tab\Events\DrinksServed;
 use Nokios\Cafe\Tab\Events\FoodOrdered;
+use Nokios\Cafe\Tab\Events\FoodPrepared;
 use Nokios\Cafe\Tab\Events\FoodServed;
 use Nokios\Cafe\Tab\Events\OrderedItem;
 use Nokios\Cafe\Tab\Events\TabClosed;
 use Nokios\Cafe\Tab\Events\TabOpened;
 use Nokios\Cafe\Tab\Handlers\CloseTabHandler;
 use Nokios\Cafe\Tab\Handlers\MarkDrinksServedHandler;
+use Nokios\Cafe\Tab\Handlers\MarkFoodPreparedHandler;
 use Nokios\Cafe\Tab\Handlers\MarkFoodServedHandler;
 use Nokios\Cafe\Tab\Handlers\OpenTabHandler;
 use Nokios\Cafe\Tab\Handlers\PlaceOrderHandler;
@@ -171,7 +174,7 @@ class TabTest extends TestCase
         $commandHandler = new PlaceOrderHandler($command);
         $commandHandler->handle();
 
-        $command = new MarkDrinksServed($this->id, [$this->testDrink1]);
+        $command = new MarkDrinksServed($this->id, [$this->testDrink1->getMenuNumber()]);
         $commandHandler = new MarkDrinksServedHandler($command);
         $commandHandler->handle();
 
@@ -195,7 +198,7 @@ class TabTest extends TestCase
         $commandHandler = new PlaceOrderHandler($command);
         $commandHandler->handle();
 
-        $command = new MarkDrinksServed($this->id, [$this->testDrink2]);
+        $command = new MarkDrinksServed($this->id, [$this->testDrink2->getMenuNumber()]);
         $commandHandler = new MarkDrinksServedHandler($command);
         $commandHandler->handle();
     }
@@ -210,13 +213,18 @@ class TabTest extends TestCase
         $commandHandler = new PlaceOrderHandler($command);
         $commandHandler->handle();
 
-        $command = new MarkFoodServed($this->id, [$this->testFood1]);
+        $command = new MarkFoodPrepared($this->id, [$this->testFood1->getMenuNumber()]);
+        $commandHandler = new MarkFoodPreparedHandler($command);
+        $commandHandler->handle();
+
+        $command = new MarkFoodServed($this->id, [$this->testFood1->getMenuNumber()]);
         $commandHandler = new MarkFoodServedHandler($command);
         $commandHandler->handle();
 
         $this->assertEventsSeen($this->id, [
             TabOpened::class,
             FoodOrdered::class,
+            FoodPrepared::class,
             FoodServed::class
         ]);
     }
@@ -234,7 +242,7 @@ class TabTest extends TestCase
         $commandHandler = new PlaceOrderHandler($command);
         $commandHandler->handle();
 
-        $command = new MarkFoodServed($this->id, [$this->testFood2]);
+        $command = new MarkFoodServed($this->id, [$this->testFood2->getMenuNumber()]);
         $commandHandler = new MarkFoodServedHandler($command);
         $commandHandler->handle();
     }
@@ -249,7 +257,11 @@ class TabTest extends TestCase
         $commandHandler = new PlaceOrderHandler($command);
         $commandHandler->handle();
 
-        $command = new MarkFoodServed($this->id, [$this->testFood1]);
+        $command = new MarkFoodPrepared($this->id, [$this->testFood1->getMenuNumber()]);
+        $commandHandler = new MarkFoodPreparedHandler($command);
+        $commandHandler->handle();
+
+        $command = new MarkFoodServed($this->id, [$this->testFood1->getMenuNumber()]);
         $commandHandler = new MarkFoodServedHandler($command);
         $commandHandler->handle();
 
@@ -260,6 +272,7 @@ class TabTest extends TestCase
         $this->assertEventsSeen($this->id, [
             TabOpened::class,
             FoodOrdered::class,
+            FoodPrepared::class,
             FoodServed::class,
             [
                 'class' => TabClosed::class,
@@ -287,7 +300,11 @@ class TabTest extends TestCase
         $commandHandler = new PlaceOrderHandler($command);
         $commandHandler->handle();
 
-        $command = new MarkFoodServed($this->id, [$this->testFood1]);
+        $command = new MarkFoodPrepared($this->id, [$this->testFood1->getMenuNumber()]);
+        $commandHandler = new MarkFoodPreparedHandler($command);
+        $commandHandler->handle();
+
+        $command = new MarkFoodServed($this->id, [$this->testFood1->getMenuNumber()]);
         $commandHandler = new MarkFoodServedHandler($command);
         $commandHandler->handle();
 

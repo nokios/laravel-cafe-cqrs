@@ -1,12 +1,11 @@
 <?php
 
-
 namespace Nokios\Cafe\Tab\Commands;
 
-
+use Nokios\Cafe\Domain\Commands\CommandInterface;
 use Ramsey\Uuid\Uuid;
 
-class MarkDrinksServed
+class MarkDrinksServed implements CommandInterface
 {
     /** @var \Ramsey\Uuid\Uuid */
     private $tabId;

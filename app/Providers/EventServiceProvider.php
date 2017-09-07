@@ -4,6 +4,7 @@ namespace Nokios\Cafe\Providers;
 
 use Illuminate\Support\Facades\Event;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
+use Nokios\Cafe\Tab\Events\FoodOrdered;
 
 class EventServiceProvider extends ServiceProvider
 {
@@ -13,7 +14,7 @@ class EventServiceProvider extends ServiceProvider
      * @var array
      */
     protected $listen = [
-        'Nokios\Cafe\Events\Event' => [
+        FoodOrdered::class => [
             'Nokios\Cafe\Listeners\EventListener',
         ],
     ];

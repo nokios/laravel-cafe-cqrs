@@ -6,6 +6,7 @@ use Nokios\Cafe\Domain\Aggregates\EventSourcedAggregateRoot;
 use Nokios\Cafe\Tab\Events\DrinksOrdered;
 use Nokios\Cafe\Tab\Events\DrinksServed;
 use Nokios\Cafe\Tab\Events\FoodOrdered;
+use Nokios\Cafe\Tab\Events\FoodPrepared;
 use Nokios\Cafe\Tab\Events\FoodServed;
 use Nokios\Cafe\Tab\Events\OrderedItem;
 use Nokios\Cafe\Tab\Events\TabClosed;
@@ -122,27 +123,39 @@ class Tab extends EventSourcedAggregateRoot
         }
     }
 
-    public function serveDrinks(array $orderedItems)
+    public function markFoodPrepared(array $menuNumbers)
     {
-        if (! $this->areDrinksOutstanding($orderedItems)) {
+        if (! $this->isFoodOutstanding($menuNumbers)) {
+            throw new FoodNotOutstanding;
+        }
+
+        $this->apply(new FoodPrepared(
+            $this->uuid,
+            $menuNumbers
+        ));
+    }
+
+    public function serveDrinks(array $menuNumbers)
+    {
+        if (! $this->areDrinksOutstanding($menuNumbers)) {
             throw new DrinksNotOutstanding;
         }
 
         $this->apply(new DrinksServed(
             $this->getId(),
-            $orderedItems
+            $menuNumbers
         ));
     }
 
-    public function serveFood(array $orderedItems)
+    public function serveFood(array $menuNumbers)
     {
-        if (! $this->areFoodOutstanding($orderedItems)) {
+        if (! $this->isFoodPrepared($menuNumbers)) {
             throw new FoodNotOutstanding;
         }
 
         $this->apply(new FoodServed(
             $this->getId(),
-            $orderedItems
+            $menuNumbers
         ));
     }
 
@@ -160,29 +173,45 @@ class Tab extends EventSourcedAggregateRoot
         ));
     }
 
-    private function areDrinksOutstanding(array $items) : bool
+    private function areDrinksOutstanding(array $menuNumbers) : bool
     {
         // For each item in question check if it is in the outstanding list.
         // If it is in the outstanding list,
-        return collect($items)->filter(function (OrderedItem $drinkInQuestion) {
+        return collect($menuNumbers)->filter(function ($menuNumberInQuestion) {
 
-            return $this->outstandingDrinks->filter(function (OrderedItem $outstandingDrink) use ($drinkInQuestion) {
-                return $drinkInQuestion->getMenuNumber() == $outstandingDrink->getMenuNumber();
-            })->isEmpty();
+            return $this->outstandingDrinks->filter(
+                function (OrderedItem $outstandingDrink) use ($menuNumberInQuestion) {
+                    return $menuNumberInQuestion == $outstandingDrink->getMenuNumber();
+                })
+                ->isEmpty();
 
         })->isEmpty();
     }
 
-
-    private function areFoodOutstanding(array $items) : bool
+    private function isFoodOutstanding(array $menuNumbers) : bool
     {
         // For each item in question check if it is in the outstanding list.
         // If it is in the outstanding list,
-        return collect($items)->filter(function (OrderedItem $foodInQuestion) {
+        return collect($menuNumbers)->filter(function ($menuNumberInQuestion) {
 
-            return $this->outstandingFood->filter(function (OrderedItem $outstandingFood) use ($foodInQuestion) {
-                return $foodInQuestion->getMenuNumber() == $outstandingFood->getMenuNumber();
-            })->isEmpty();
+            return $this->outstandingFood->filter(
+                function (OrderedItem $outstandingFood) use ($menuNumberInQuestion) {
+                    return $menuNumberInQuestion == $outstandingFood->getMenuNumber();
+                })->isEmpty();
+
+        })->isEmpty();
+    }
+
+    private function isFoodPrepared(array $menuNumbers) : bool
+    {
+        // For each item in question check if it is in the outstanding list.
+        // If it is in the outstanding list,
+        return collect($menuNumbers)->filter(function ($menuNumberInQuestion) {
+
+            return $this->preparedFood->filter(
+                function (OrderedItem $outstandingFood) use ($menuNumberInQuestion) {
+                    return $menuNumberInQuestion == $outstandingFood->getMenuNumber();
+                })->isEmpty();
 
         })->isEmpty();
     }
@@ -208,17 +237,35 @@ class Tab extends EventSourcedAggregateRoot
         $this->outstandingFood = $this->outstandingFood->merge($event->getItems());
     }
 
+    protected function applyFoodPrepared(FoodPrepared $event)
+    {
+        collect($event->getMenuNumbers())->each(function ($menuNumber) {
+            $index = $this->outstandingFood->search(function (OrderedItem $outstandingFood) use ($menuNumber) {
+                return $menuNumber == $outstandingFood->getMenuNumber();
+            });
+
+            /** @var OrderedItem $orderedItem */
+            $orderedItem = $this->outstandingFood->get($index);
+
+            $this->outstandingFood->forget($index);
+
+            $this->preparedFood->push($orderedItem);
+        });
+    }
+
     protected function applyDrinksServed(DrinksServed $event)
     {
         $servedDrinks = collect($event->getMenuNumbers());
 
-        $servedDrinks->each(function (OrderedItem $orderedDrink) {
-            $index = $this->outstandingDrinks->search(function (OrderedItem $outstandingDrink) use ($orderedDrink) {
-                return $orderedDrink->getMenuNumber() == $outstandingDrink->getMenuNumber();
+        $servedDrinks->each(function ($menuNumber) {
+            $index = $this->outstandingDrinks->search(function (OrderedItem $outstandingDrink) use ($menuNumber) {
+                return $menuNumber == $outstandingDrink->getMenuNumber();
             });
+
             /** @var OrderedItem $orderedItem */
             $orderedItem = $this->outstandingDrinks->get($index);
             $this->servedItemsValue += $orderedItem->getPrice();
+
             $this->outstandingDrinks->forget($index);
         });
 
@@ -230,21 +277,21 @@ class Tab extends EventSourcedAggregateRoot
      */
     protected function applyFoodServed(FoodServed $event)
     {
-        $servedFood = collect($event->getServedItems());
+        $servedFood = collect($event->getMenuNumbers());
 
-        $servedFood->each(function (OrderedItem $orderedFood) {
-            $index = $this->outstandingFood->search(function (OrderedItem $outstandingFood) use ($orderedFood) {
-                return $orderedFood->getMenuNumber() == $outstandingFood->getMenuNumber();
+        $servedFood->each(function ($menuNumber) {
+            $index = $this->preparedFood->search(function (OrderedItem $preparedFood) use ($menuNumber) {
+                return $menuNumber == $preparedFood->getMenuNumber();
             });
 
             /** @var OrderedItem $orderedItem */
-            $orderedItem = $this->outstandingFood->get($index);
+            $orderedItem = $this->preparedFood->get($index);
             $this->servedItemsValue += $orderedItem->getPrice();
 
-            $this->outstandingFood->forget($index);
+            $this->preparedFood->forget($index);
         });
 
-        $this->outstandingFood = $this->outstandingFood->values();
+        $this->preparedFood = $this->preparedFood->values();
     }
 
     protected function applyTabClosed(TabClosed $event)

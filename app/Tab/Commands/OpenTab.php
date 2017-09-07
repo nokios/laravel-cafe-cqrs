@@ -1,13 +1,15 @@
 <?php
 
 namespace Nokios\Cafe\Tab\Commands;
+
+use Nokios\Cafe\Domain\Commands\CommandInterface;
 use Ramsey\Uuid\Uuid;
 
 /**
  * Class OpenTab
  * @package Nokios\Cafe\Domain\Commands
  */
-class OpenTab
+class OpenTab implements CommandInterface
 {
     /** @var \Ramsey\Uuid\Uuid */
     private $tabId;

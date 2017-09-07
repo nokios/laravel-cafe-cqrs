@@ -5,20 +5,14 @@ namespace Nokios\Cafe\Tab\Events;
 use Nokios\Cafe\Domain\Events\SerializableEvent;
 use Ramsey\Uuid\Uuid;
 
-class FoodServed implements SerializableEvent
+class FoodPrepared implements SerializableEvent
 {
     /** @var \Ramsey\Uuid\Uuid */
     private $tabId;
 
-    /** @var array  */
+    /** @var array */
     private $menuNumbers = [];
 
-    /**
-     * DrinksServed constructor.
-     *
-     * @param \Ramsey\Uuid\Uuid $tabId
-     * @param array             $menuNumbers
-     */
     public function __construct(Uuid $tabId, array $menuNumbers)
     {
         $this->tabId = $tabId;
@@ -47,7 +41,7 @@ class FoodServed implements SerializableEvent
     public function getPayload(): array
     {
         return [
-            'tabId' => $this->getTabId(),
+            'tabId' => $this->getTabId()->toString(),
             'menuNumbers' => $this->getMenuNumbers()
         ];
     }
@@ -57,7 +51,7 @@ class FoodServed implements SerializableEvent
      *
      * @return static
      */
-    public static function fromPayload(array $data)
+    public static function fromPayload(array $data) : FoodPrepared
     {
         return new static(
             Uuid::fromString(array_get($data, 'tabId')),

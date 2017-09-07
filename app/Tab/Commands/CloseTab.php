@@ -2,13 +2,14 @@
 
 namespace Nokios\Cafe\Tab\Commands;
 
+use Nokios\Cafe\Domain\Commands\CommandInterface;
 use Ramsey\Uuid\Uuid;
 
 /**
  * Class CloseTab
  * @package Nokios\Cafe\Tab\Commands
  */
-class CloseTab
+class CloseTab implements CommandInterface
 {
     /** @var \Ramsey\Uuid\Uuid */
     private $tabId;

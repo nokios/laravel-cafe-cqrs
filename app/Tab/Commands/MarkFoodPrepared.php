@@ -2,14 +2,10 @@
 
 namespace Nokios\Cafe\Tab\Commands;
 
-use Nokios\Cafe\Domain\Commands\CommandInterface;
 use Ramsey\Uuid\Uuid;
+use Nokios\Cafe\Domain\Commands\CommandInterface;
 
-/**
- * Class MarkFoodServed
- * @package Nokios\Cafe\Tab\Commands
- */
-class MarkFoodServed implements CommandInterface
+class MarkFoodPrepared implements CommandInterface
 {
     /** @var \Ramsey\Uuid\Uuid */
     private $tabId;
