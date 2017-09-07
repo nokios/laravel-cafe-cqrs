@@ -12,6 +12,7 @@ use Nokios\Cafe\Tab\Events\TabClosed;
 use Nokios\Cafe\Tab\Events\TabOpened;
 use Nokios\Cafe\Tab\Exceptions\DrinksNotOutstanding;
 use Nokios\Cafe\Tab\Exceptions\FoodNotOutstanding;
+use Nokios\Cafe\Tab\Exceptions\MustPayEnough;
 use Nokios\Cafe\Tab\Exceptions\TabNotOpened;
 use Ramsey\Uuid\Uuid;
 
@@ -49,6 +50,39 @@ class Tab extends EventSourcedAggregateRoot
         $this->preparedFood = collect();
     }
 
+    public function getId() : Uuid
+    {
+        return $this->uuid;
+    }
+
+    /**
+     * @return int
+     */
+    public function getTableNumber(): int
+    {
+        return $this->tableNumber;
+    }
+
+    /**
+     * @return string
+     */
+    public function getWaiter(): string
+    {
+        return $this->waiter;
+    }
+
+    public function isOpen()
+    {
+        return $this->open;
+    }
+
+    /**
+     * @param \Ramsey\Uuid\Uuid $tabId
+     * @param int               $tableNumber
+     * @param string            $waiter
+     *
+     * @return \Nokios\Cafe\Tab\Tab
+     */
     public static function openTab(Uuid $tabId, int $tableNumber, string $waiter)
     {
         $tab = new self;
@@ -114,33 +148,16 @@ class Tab extends EventSourcedAggregateRoot
 
     public function closeTab(float $amountPaid)
     {
+        if ($amountPaid < $this->servedItemsValue) {
+            throw new MustPayEnough("They shortchanged us!");
+        }
+
         $this->apply(new TabClosed(
             $this->uuid,
             $amountPaid,
             $this->servedItemsValue,
             ($amountPaid - $this->servedItemsValue)
         ));
-    }
-
-    public function getId() : Uuid
-    {
-        return $this->uuid;
-    }
-
-    /**
-     * @return int
-     */
-    public function getTableNumber(): int
-    {
-        return $this->tableNumber;
-    }
-
-    /**
-     * @return string
-     */
-    public function getWaiter(): string
-    {
-        return $this->waiter;
     }
 
     private function areDrinksOutstanding(array $items) : bool
@@ -232,6 +249,6 @@ class Tab extends EventSourcedAggregateRoot
 
     protected function applyTabClosed(TabClosed $event)
     {
-
+        $this->open = false;
     }
 }

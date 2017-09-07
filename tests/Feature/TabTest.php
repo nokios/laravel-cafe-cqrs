@@ -21,6 +21,7 @@ use Nokios\Cafe\Tab\Handlers\MarkDrinksServedHandler;
 use Nokios\Cafe\Tab\Handlers\MarkFoodServedHandler;
 use Nokios\Cafe\Tab\Handlers\OpenTabHandler;
 use Nokios\Cafe\Tab\Handlers\PlaceOrderHandler;
+use Nokios\Cafe\Tab\TabRepository;
 use Ramsey\Uuid\Uuid;
 use Tests\TestCase;
 
@@ -269,6 +270,30 @@ class TabTest extends TestCase
                 ]
             ]
         ]);
+
+        $this->assertFalse((new TabRepository)->load($this->id)->isOpen());
+    }
+
+    /**
+     * @expectedException \Nokios\Cafe\Tab\Exceptions\MustPayEnough
+     */
+    public function testCantCloseTabWithInsufficientAmount()
+    {
+        $command = new OpenTab($this->id, $this->tableNumber, $this->waiter);
+        $commandHandler = new OpenTabHandler($command);
+        $commandHandler->handle();
+
+        $command = new PlaceOrder($this->id, [$this->testFood1]);
+        $commandHandler = new PlaceOrderHandler($command);
+        $commandHandler->handle();
+
+        $command = new MarkFoodServed($this->id, [$this->testFood1]);
+        $commandHandler = new MarkFoodServedHandler($command);
+        $commandHandler->handle();
+
+        $command = new CloseTab($this->id, $this->testFood1->getPrice() - 0.50);
+        $commandHandler = new CloseTabHandler($command);
+        $commandHandler->handle();
     }
 
     /* ---------------------------------------------------------------------------------------------------------------+
