@@ -2,6 +2,7 @@
 
 namespace Nokios\Cafe\Tab;
 
+use Illuminate\Support\Collection;
 use Nokios\Cafe\Domain\Aggregates\EventSourcedAggregateRoot;
 use Nokios\Cafe\Tab\Events\DrinksOrdered;
 use Nokios\Cafe\Tab\Events\DrinksServed;
@@ -75,6 +76,11 @@ class Tab extends EventSourcedAggregateRoot
     public function isOpen()
     {
         return $this->open;
+    }
+
+    public function outstandingFood() : Collection
+    {
+        return $this->outstandingFood;
     }
 
     /**

@@ -24,6 +24,7 @@ use Nokios\Cafe\Tab\Handlers\MarkFoodPreparedHandler;
 use Nokios\Cafe\Tab\Handlers\MarkFoodServedHandler;
 use Nokios\Cafe\Tab\Handlers\OpenTabHandler;
 use Nokios\Cafe\Tab\Handlers\PlaceOrderHandler;
+use Nokios\Cafe\Tab\ReadModels\ChefToDoList;
 use Nokios\Cafe\Tab\TabRepository;
 use Ramsey\Uuid\Uuid;
 use Tests\TestCase;
@@ -311,6 +312,28 @@ class TabTest extends TestCase
         $command = new CloseTab($this->id, $this->testFood1->getPrice() - 0.50);
         $commandHandler = new CloseTabHandler($command);
         $commandHandler->handle();
+    }
+
+    public function testChefsToDoListShowsUnservedFood()
+    {
+        $command = new OpenTab($this->id, $this->tableNumber, $this->waiter);
+        $commandHandler = new OpenTabHandler($command);
+        $commandHandler->handle();
+
+        $command = new PlaceOrder($this->id, [$this->testFood1]);
+        $commandHandler = new PlaceOrderHandler($command);
+        $commandHandler->handle();
+
+        $chefToDoList = new ChefToDoList;
+
+        $todoList = $chefToDoList->getToDoList();
+
+        $this->assertEquals(1, $todoList->count());
+        $this->assertEquals($this->id, $todoList->first()->getTabId());
+        $this->assertEquals(
+            $this->testFood1->getMenuNumber(),
+            $todoList->first()->getItems()->first()->getMenuNumber()
+        );
     }
 
     /* ---------------------------------------------------------------------------------------------------------------+
