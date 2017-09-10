@@ -2,19 +2,26 @@
 
 @section('content')
     <div>
-        <h2>Open Tabs</h2>
-        <hr/>
-        <ul class="list-group">
-            @foreach ($tabs as $tab)
-                <li class="list-group-item">{{ $tab->getWaiter() }} ( Table: {{ $tab->getTableNumber() }} )</li>
-            @endforeach
-        </ul>
+        <h2>Add Item to Tab</h2>
+        <h4>{{ $tab->getWaiter() }} ( Table {{ $tab->getTableNumber() }} )</h4>
         <hr/>
         <form action="/open-tab" method="POST">
             {!! csrf_field() !!}
-            <input name="waiter" placeholder="Waiter name"/>
-            <input name="tableNumber" placeholder="Table Number"/>
-            <button type="submit">Open New Tab</button>
+            <div class="form-group">
+                <label for="menu-item">
+                    Item
+                </label>
+                <select name="menu-item" class="form-control">
+                @foreach ($menuItems as $item)
+                    <option value="{{ $item['id'] }}"></option>
+                @endforeach
+                </select>
+                <label for="quantity">
+                    Qty
+                </label>
+                <input name="quantity" placeholder="Qty" value="1" width="1em" class="form-control"/>
+                <button type="submit" class="btn btn-primary">Add Item</button>
+            </div>
         </form>
     </div>
 @endsection

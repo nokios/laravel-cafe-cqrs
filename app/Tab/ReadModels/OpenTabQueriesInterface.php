@@ -11,4 +11,6 @@ interface OpenTabQueriesInterface
     public function getTabForTable();
 
     public function getTodoListForWaiter();
+
+    public function getOpenTabs();
 }

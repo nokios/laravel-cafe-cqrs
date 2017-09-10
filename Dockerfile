@@ -9,7 +9,6 @@ RUN yes | pecl install xdebug \
     && echo "xdebug.remote_autostart=off" >> /usr/local/etc/php/conf.d/xdebug.ini
 
 RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.4/install.sh | bash
-RUN nvm install node
 
 RUN mkdir -p /opt/project
 WORKDIR /opt/project

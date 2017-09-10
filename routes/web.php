@@ -16,8 +16,8 @@ use Nokios\Cafe\Tab\Commands\OpenTab;
 use Nokios\Cafe\Tab\Handlers\OpenTabHandler;
 
 Route::get('/', function () {
-    return view('tab', [
-        'tabs' => (new \Nokios\Cafe\Tab\TabRepository)->getOpenTabs()
+    return view('open-tabs', [
+        'tabs' => (new \Nokios\Cafe\Tab\ReadModels\EventSourcedOpenTabQueries())->getOpenTabs()
     ]);
 });
 
@@ -33,4 +33,11 @@ Route::post('/open-tab', function (Request $request) {
     $commandHandler->handle();
 
     return redirect('/');
+});
+
+Route::get('/tab/{id}', function ($id) {
+    return view('tab', [
+        'tab' => (new \Nokios\Cafe\Tab\TabRepository)->load(\Ramsey\Uuid\Uuid::fromString($id)),
+        'menuItems' => []
+    ]);
 });
