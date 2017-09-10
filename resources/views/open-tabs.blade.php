@@ -1,8 +1,12 @@
 @extends('layouts.layout')
 
+@section('title')
+    Open Tabs
+@endsection
+
 @section('content')
     <div>
-        <h2>Open Tabs</h2>
+        <h2>Open Tabs <span class="badge badge-info">{{ count($tabs) }}</span></h2>
         <hr/>
         <ul class="list-group">
         @foreach ($tabs as $tab)

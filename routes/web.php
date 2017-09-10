@@ -38,6 +38,15 @@ Route::post('/open-tab', function (Request $request) {
 Route::get('/tab/{id}', function ($id) {
     return view('tab', [
         'tab' => (new \Nokios\Cafe\Tab\TabRepository)->load(\Ramsey\Uuid\Uuid::fromString($id)),
-        'menuItems' => []
+        'foodItems' => [[
+            'number' => 100,
+            'description' => 'Breakfast Special',
+            'price' => 4.50
+        ]],
+        'drinkItems' => [[
+            'number' => 200,
+            'description' => 'Orange Juice',
+            'price' => 2.50
+        ]],
     ]);
 });
