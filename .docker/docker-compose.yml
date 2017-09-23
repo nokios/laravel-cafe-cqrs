@@ -45,7 +45,7 @@ services:
     hostname: cafe-db
     image: postgres
     volumes:
-      - ./data/db:/var/lib/postgresql/data
+      - "/var/lib/postgresql/data"
     ports:
       - 5432:5432
     environment:
