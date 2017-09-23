@@ -11,7 +11,7 @@
       "workers": 20,
       "user": "www-data",
       "group": "www-data",
-      "root": "/www/cafe/public",
+      "root": "/var/www/cafe/public",
       "index": "index.php"
     }
   }
