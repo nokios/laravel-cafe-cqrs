@@ -22,4 +22,10 @@ RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.4/install.sh
 
 RUN apt-get clean
 
+ARG PUID=1000
+ARG PGID=1000
+
+RUN groupmod -g $PGID www-data && \
+    usermod -u $PUID -g $PGID www-data
+
 CMD ["unitd", "--no-daemon"]
