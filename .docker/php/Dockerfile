@@ -16,7 +16,7 @@ RUN set -xe \
 
 RUN apt-get update -y && apt-get install -y zip unzip git libxml2-dev libpq-dev
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-RUN apt-get -y install php-pdo php-mbstring php-tokenizer php-xml php-pdo-pgsql
+RUN apt-get -y install php7.1-pdo php-mbstring php7.1-tokenizer php-xml php7.1-pgsql
 
 RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.4/install.sh | bash
 
