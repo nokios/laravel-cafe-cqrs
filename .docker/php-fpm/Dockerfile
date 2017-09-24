@@ -5,4 +5,10 @@ RUN docker-php-ext-install pdo mbstring tokenizer xml pdo_pgsql
 
 RUN mkdir -p /opt/project
 
+ARG PUID=1000
+ARG PGID=1000
+
+RUN groupadd -g $PGID Employees && \
+    usermod -u $PUID -g $PGID www-data
+
 WORKDIR /opt/project
