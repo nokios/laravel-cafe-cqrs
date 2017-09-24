@@ -84,7 +84,7 @@ services:
       - db
 
 #  NGINX Unit appears to fail when receiving a POST
-  cafe-app:
+  cafe-unit:
     hostname: cafe-web
     build:
       context: nginx-unit/
@@ -98,7 +98,6 @@ services:
       - ./run:/var/run
       - ./root:/www/root
       - ../:/var/www/cafe
-    restart: unless-stopped
     links:
       - db
       - nginx
