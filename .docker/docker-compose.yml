@@ -101,6 +101,8 @@ services:
     restart: unless-stopped
     links:
       - db
+      - nginx
+      - nginx-gen
 
   workspace:
     build:
