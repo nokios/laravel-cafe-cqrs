@@ -2,6 +2,11 @@ version: '2'
 
 services:
 
+  application:
+    image: tianon/true
+    volumes:
+      - ../:/var/www
+
   nginx:
     hostname: nginx
     container_name: nginx
@@ -9,8 +14,8 @@ services:
     labels:
       - com.github.jrcs.letsencrypt_nginx_proxy_companion.nginx_proxy
     ports:
-      - 80:80
-      - 443:443
+      - 8080:80
+      - 8443:443
     volumes:
       - /etc/nginx/conf.d
       - /etc/nginx/vhost.d
@@ -52,10 +57,37 @@ services:
       POSTGRES_USER: cafedb
       POSTGRES_PASSWORD: cafedbP4ss
 
+  cafe-nginx:
+    build:
+      context: cafe-nginx
+    expose:
+      - 80
+    volumes:
+      - ../storage/logs/nginx:/var/log/nginx
+      - ./cafe-nginx/sites:/etc/nginx/sites-available
+      - ../:/opt/project
+    links:
+      - cafe-fpm
+    environment:
+      - VIRTUAL_HOST=cafe.nokiosdesigns.com
+      - LETSENCRYPT_HOST=cafe.nokiosdesigns.com
+      - LETSENCRYPT_EMAIL=trenton.craig@gmail.com
+
+  cafe-fpm:
+    build:
+      context: php-fpm
+    volumes:
+      - ../:/opt/project
+    expose:
+      - 9000
+    links:
+      - db
+
+#  NGINX Unit appears to fail when receiving a POST
   cafe-app:
     hostname: cafe-web
     build:
-      context: ./php/
+      context: nginx-unit/
     container_name: nginx-unit
     ports:
       - 8200:8200
@@ -67,7 +99,11 @@ services:
       - ./root:/www/root
       - ../:/var/www/cafe
     restart: unless-stopped
-    environment:
-      - VIRTUAL_HOST=cafe.nokiosdesigns.com
-      - LETSENCRYPT_HOST=cafe.nokiosdesigns.com
-      - LETSENCRYPT_EMAIL=trenton.craig@gmail.com
+    links:
+      - db
+
+  workspace:
+    build:
+      context: ./workspace
+    volumes_from:
+      - application

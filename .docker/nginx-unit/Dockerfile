@@ -2,7 +2,7 @@ FROM ubuntu:xenial
 
 RUN set -xe \
     && apt-get -y update \
-    && apt-get -y install ca-certificates \
+    && apt-get -y install ca-certificates    openssl zip unzip git libxml2-dev libpq-dev \
     && apt-get -y install --no-install-recommends curl \
     && apt-get install -y software-properties-common python-software-properties curl \
     && export LANG=C.UTF-8 \
@@ -14,7 +14,6 @@ RUN set -xe \
     && apt-get -y install unit php7.1 \
     && unitd --version
 
-RUN apt-get update -y && apt-get install -y zip unzip git libxml2-dev libpq-dev
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 RUN apt-get -y install php7.1-pdo php-mbstring php7.1-tokenizer php-xml php7.1-pgsql
 
