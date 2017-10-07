@@ -1,0 +1,10 @@
+---
+- hosts: "webserver"
+  docker_container:
+    name: cafeweb
+    image: php:7.1-fpm
+    published_ports:
+    - 9000
+    volumes:
+    - "/var/www"
+

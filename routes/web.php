@@ -53,6 +53,8 @@ Route::post('/tab/{id}/add-items', function ($id) {
 //    $commandHandler->handle();
 });
 
+Route::resource('menu', 'MenuController');
+
 Route::post('/menu/add-item', function (\Nokios\Cafe\Http\Requests\AddMenuItem $request) {
 
     $tabId = $request->get('tabId');

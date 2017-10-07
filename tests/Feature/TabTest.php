@@ -2,7 +2,7 @@
 
 namespace Tests\Feature;
 
-use Illuminate\Foundation\Testing\DatabaseTransactions;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Nokios\Cafe\EventStream;
 use Nokios\Cafe\Tab\Commands\CloseTab;
 use Nokios\Cafe\Tab\Commands\MarkDrinksServed;
@@ -31,7 +31,7 @@ use Tests\TestCase;
 
 class TabTest extends TestCase
 {
-    use DatabaseTransactions;
+    use RefreshDatabase;
 
     protected $id;
     protected $tableNumber;
