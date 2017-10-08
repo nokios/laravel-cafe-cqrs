@@ -3,6 +3,7 @@
 namespace Nokios\Cafe\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Nokios\Cafe\MenuItem;
 
 class MenuController extends Controller
 {
@@ -13,7 +14,7 @@ class MenuController extends Controller
      */
     public function index()
     {
-        return view();
+        return view('menu.index');
     }
 
     /**

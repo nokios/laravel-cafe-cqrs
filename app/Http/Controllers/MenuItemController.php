@@ -14,11 +14,22 @@ class MenuItemController extends Controller
      * Display a listing of the resource.
      *
      */
-    public function index()
+    public function index(Request $request)
     {
+        $query = MenuItem::query();
+
+        if ($request->has('is_drink')) {
+            $isDrink = $request->get('is_drink');
+            if ($isDrink) {
+                $query->isDrink();
+            } else {
+                $query->isNotDrink();
+            }
+        }
+
         return JsonResponse::create(
             \Nokios\Cafe\Http\Resources\MenuItem::collection(
-                MenuItem::all()
+                $query->get()
             )
         );
     }

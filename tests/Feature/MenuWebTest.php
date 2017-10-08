@@ -19,5 +19,7 @@ class MenuWebTest extends TestCase
         $response = $this->get('/menu');
 
         $response->assertStatus(200);
+
+        $response->assertSee('Current Menu');
     }
 }
