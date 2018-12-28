@@ -15,7 +15,7 @@ class MenuTest extends TestCase
      *
      * @return void
      */
-    public function testCanAddMenuItem()
+    public function test_can_add_menu_item()
     {
         $price = 5.60;
         $description = 'My Food Item';
@@ -28,7 +28,7 @@ class MenuTest extends TestCase
         $this->assertTrue($menuItem->exists);
     }
 
-    public function testCanFetchOnlyDrinkItems()
+    public function test_can_fetch_only_drink_items()
     {
         $payload = [[
             'price' => 2.50,
@@ -54,7 +54,7 @@ class MenuTest extends TestCase
         $this->assertEquals(2, MenuItem::isDrink()->count());
     }
 
-    public function testCanFetchOnlyFoodItems()
+    public function test_can_fetch_only_food_items()
     {
         $payload = [[
             'price' => 2.50,
@@ -80,7 +80,7 @@ class MenuTest extends TestCase
         $this->assertEquals(2, MenuItem::isNotDrink()->count());
     }
 
-    public function testCanCreateThroughApi()
+    public function test_can_create_through_api()
     {
         $payload = [
             'price' => 2.50,
@@ -94,7 +94,7 @@ class MenuTest extends TestCase
             ->assertJson($payload);
     }
 
-    public function testCanSeeMenuItemsThroughApi()
+    public function test_can_see_menu_items_through_api()
     {
         $this->seed(\MenuItemSeeder::class);
         $response = $this->getJson('/api/menu-item');

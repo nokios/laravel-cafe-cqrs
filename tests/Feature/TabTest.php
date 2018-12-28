@@ -89,7 +89,7 @@ class TabTest extends TestCase
      *
      * @return void
      */
-    public function testCanOpenANewTab()
+    public function test_can_open_anew_tab()
     {
         $command = new OpenTab($this->id, $this->tableNumber, $this->waiter);
         $commandHandler = new OpenTabHandler($command);
@@ -103,7 +103,7 @@ class TabTest extends TestCase
     /**
      * @expectedException \Nokios\Cafe\Tab\Exceptions\TabNotOpened
      */
-    public function testCanNotOrderWithUnopenedTab()
+    public function test_can_not_order_with_unopened_tab()
     {
         $command = new PlaceOrder($this->id, [new OrderedItem(1, 'Coke', true, 2.50)]);
         $commandHandler = new PlaceOrderHandler($command);
@@ -112,7 +112,7 @@ class TabTest extends TestCase
         $this->assertEquals(0, EventStream::forAggregateId($this->id));
     }
 
-    public function testCanPlaceDrinksOrder()
+    public function test_can_place_drinks_order()
     {
         $command = new OpenTab($this->id, $this->tableNumber, $this->waiter);
         $commandHandler = new OpenTabHandler($command);
@@ -128,7 +128,7 @@ class TabTest extends TestCase
         ]);
     }
 
-    public function testCanPlaceFoodOrder()
+    public function test_can_place_food_order()
     {
         $command = new OpenTab($this->id, $this->tableNumber, $this->waiter);
         $commandHandler = new OpenTabHandler($command);
@@ -144,7 +144,7 @@ class TabTest extends TestCase
         ]);
     }
 
-    public function testCanPlaceFoodAndDrinkOrder()
+    public function test_can_place_food_and_drink_order()
     {
         $command = new OpenTab($this->id, $this->tableNumber, $this->waiter);
         $commandHandler = new OpenTabHandler($command);
@@ -165,7 +165,7 @@ class TabTest extends TestCase
         ]);
     }
 
-    public function testOrderedDrinksCanBeServed()
+    public function test_ordered_drinks_can_be_served()
     {
         $command = new OpenTab($this->id, $this->tableNumber, $this->waiter);
         $commandHandler = new OpenTabHandler($command);
@@ -189,7 +189,7 @@ class TabTest extends TestCase
     /**
      * @expectedException \Nokios\Cafe\Tab\Exceptions\DrinksNotOutstanding
      */
-    public function testCanNotServeAnUnorderedDrink()
+    public function test_can_not_serve_an_unordered_drink()
     {
         $command = new OpenTab($this->id, $this->tableNumber, $this->waiter);
         $commandHandler = new OpenTabHandler($command);
@@ -204,7 +204,7 @@ class TabTest extends TestCase
         $commandHandler->handle();
     }
 
-    public function testOrderedFoodCanBeServed()
+    public function test_ordered_food_can_be_served()
     {
         $command = new OpenTab($this->id, $this->tableNumber, $this->waiter);
         $commandHandler = new OpenTabHandler($command);
@@ -233,7 +233,7 @@ class TabTest extends TestCase
     /**
      * @expectedException \Nokios\Cafe\Tab\Exceptions\FoodNotOutstanding
      */
-    public function testCanNotServeAnUnorderedFood()
+    public function test_can_not_serve_an_unordered_food()
     {
         $command = new OpenTab($this->id, $this->tableNumber, $this->waiter);
         $commandHandler = new OpenTabHandler($command);
@@ -248,7 +248,7 @@ class TabTest extends TestCase
         $commandHandler->handle();
     }
 
-    public function testCanCloseTabWithTip()
+    public function test_can_close_tab_with_tip()
     {
         $command = new OpenTab($this->id, $this->tableNumber, $this->waiter);
         $commandHandler = new OpenTabHandler($command);
@@ -291,7 +291,7 @@ class TabTest extends TestCase
     /**
      * @expectedException \Nokios\Cafe\Tab\Exceptions\MustPayEnough
      */
-    public function testCantCloseTabWithInsufficientAmount()
+    public function test_cant_close_tab_with_insufficient_amount()
     {
         $command = new OpenTab($this->id, $this->tableNumber, $this->waiter);
         $commandHandler = new OpenTabHandler($command);
@@ -314,7 +314,7 @@ class TabTest extends TestCase
         $commandHandler->handle();
     }
 
-    public function testChefsToDoListShowsUnservedFood()
+    public function test_chefs_to_do_list_shows_unserved_food()
     {
         $command = new OpenTab($this->id, $this->tableNumber, $this->waiter);
         $commandHandler = new OpenTabHandler($command);

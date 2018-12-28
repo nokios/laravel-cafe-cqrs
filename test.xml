@@ -1,0 +1,3197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<symfony name="Laravel Framework" version="5.5.14">
+  <commands>
+    <command id="clear-compiled" name="clear-compiled" hidden="0">
+      <usages>
+        <usage>clear-compiled</usage>
+      </usages>
+      <description>Remove the compiled class file</description>
+      <help>Remove the compiled class file</help>
+      <arguments/>
+      <options>
+        <option name="--help" shortcut="-h" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this help message</description>
+        </option>
+        <option name="--quiet" shortcut="-q" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not output any message</description>
+        </option>
+        <option name="--verbose" shortcut="-v" shortcuts="-v|-vv|-vvv" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</description>
+        </option>
+        <option name="--version" shortcut="-V" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this application version</description>
+        </option>
+        <option name="--ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Force ANSI output</description>
+        </option>
+        <option name="--no-ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Disable ANSI output</description>
+        </option>
+        <option name="--no-interaction" shortcut="-n" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not ask any interactive question</description>
+        </option>
+        <option name="--env" shortcut="" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>The environment the command should run under</description>
+          <defaults/>
+        </option>
+      </options>
+    </command>
+    <command id="down" name="down" hidden="0">
+      <usages>
+        <usage>down [--message [MESSAGE]] [--retry [RETRY]]</usage>
+      </usages>
+      <description>Put the application into maintenance mode</description>
+      <help>Put the application into maintenance mode</help>
+      <arguments/>
+      <options>
+        <option name="--message" shortcut="" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>The message for the maintenance mode.</description>
+          <defaults/>
+        </option>
+        <option name="--retry" shortcut="" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>The number of seconds after which the request may be retried.</description>
+          <defaults/>
+        </option>
+        <option name="--help" shortcut="-h" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this help message</description>
+        </option>
+        <option name="--quiet" shortcut="-q" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not output any message</description>
+        </option>
+        <option name="--verbose" shortcut="-v" shortcuts="-v|-vv|-vvv" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</description>
+        </option>
+        <option name="--version" shortcut="-V" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this application version</description>
+        </option>
+        <option name="--ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Force ANSI output</description>
+        </option>
+        <option name="--no-ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Disable ANSI output</description>
+        </option>
+        <option name="--no-interaction" shortcut="-n" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not ask any interactive question</description>
+        </option>
+        <option name="--env" shortcut="" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>The environment the command should run under</description>
+          <defaults/>
+        </option>
+      </options>
+    </command>
+    <command id="env" name="env" hidden="0">
+      <usages>
+        <usage>env</usage>
+      </usages>
+      <description>Display the current framework environment</description>
+      <help>Display the current framework environment</help>
+      <arguments/>
+      <options>
+        <option name="--help" shortcut="-h" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this help message</description>
+        </option>
+        <option name="--quiet" shortcut="-q" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not output any message</description>
+        </option>
+        <option name="--verbose" shortcut="-v" shortcuts="-v|-vv|-vvv" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</description>
+        </option>
+        <option name="--version" shortcut="-V" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this application version</description>
+        </option>
+        <option name="--ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Force ANSI output</description>
+        </option>
+        <option name="--no-ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Disable ANSI output</description>
+        </option>
+        <option name="--no-interaction" shortcut="-n" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not ask any interactive question</description>
+        </option>
+        <option name="--env" shortcut="" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>The environment the command should run under</description>
+          <defaults/>
+        </option>
+      </options>
+    </command>
+    <command id="help" name="help" hidden="0">
+      <usages>
+        <usage>help [--format FORMAT] [--raw] [--] [&lt;command_name&gt;]</usage>
+      </usages>
+      <description>Displays help for a command</description>
+      <help>The &lt;info&gt;help&lt;/info&gt; command displays help for a given command:
+ 
+   &lt;info&gt;php artisan help list&lt;/info&gt;
+ 
+ You can also output the help in other formats by using the &lt;comment&gt;--format&lt;/comment&gt; option:
+ 
+   &lt;info&gt;php artisan help --format=xml list&lt;/info&gt;
+ 
+ To display the list of available commands, please use the &lt;info&gt;list&lt;/info&gt; command.</help>
+      <arguments>
+        <argument name="command_name" is_required="0" is_array="0">
+          <description>The command name</description>
+          <defaults>
+            <default>help</default>
+          </defaults>
+        </argument>
+      </arguments>
+      <options>
+        <option name="--format" shortcut="" accept_value="1" is_value_required="1" is_multiple="0">
+          <description>The output format (txt, xml, json, or md)</description>
+          <defaults>
+            <default>txt</default>
+          </defaults>
+        </option>
+        <option name="--raw" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>To output raw command help</description>
+        </option>
+        <option name="--help" shortcut="-h" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this help message</description>
+        </option>
+        <option name="--quiet" shortcut="-q" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not output any message</description>
+        </option>
+        <option name="--verbose" shortcut="-v" shortcuts="-v|-vv|-vvv" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</description>
+        </option>
+        <option name="--version" shortcut="-V" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this application version</description>
+        </option>
+        <option name="--ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Force ANSI output</description>
+        </option>
+        <option name="--no-ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Disable ANSI output</description>
+        </option>
+        <option name="--no-interaction" shortcut="-n" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not ask any interactive question</description>
+        </option>
+        <option name="--env" shortcut="" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>The environment the command should run under</description>
+          <defaults/>
+        </option>
+      </options>
+    </command>
+    <command id="inspire" name="inspire" hidden="0">
+      <usages>
+        <usage>inspire</usage>
+      </usages>
+      <description>Display an inspiring quote</description>
+      <help>Display an inspiring quote</help>
+      <arguments/>
+      <options>
+        <option name="--help" shortcut="-h" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this help message</description>
+        </option>
+        <option name="--quiet" shortcut="-q" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not output any message</description>
+        </option>
+        <option name="--verbose" shortcut="-v" shortcuts="-v|-vv|-vvv" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</description>
+        </option>
+        <option name="--version" shortcut="-V" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this application version</description>
+        </option>
+        <option name="--ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Force ANSI output</description>
+        </option>
+        <option name="--no-ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Disable ANSI output</description>
+        </option>
+        <option name="--no-interaction" shortcut="-n" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not ask any interactive question</description>
+        </option>
+        <option name="--env" shortcut="" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>The environment the command should run under</description>
+          <defaults/>
+        </option>
+      </options>
+    </command>
+    <command id="list" name="list" hidden="0">
+      <usages>
+        <usage>list [--raw] [--format FORMAT] [--] [&lt;namespace&gt;]</usage>
+      </usages>
+      <description>Lists commands</description>
+      <help>The &lt;info&gt;list&lt;/info&gt; command lists all commands:
+ 
+   &lt;info&gt;php artisan list&lt;/info&gt;
+ 
+ You can also display the commands for a specific namespace:
+ 
+   &lt;info&gt;php artisan list test&lt;/info&gt;
+ 
+ You can also output the information in other formats by using the &lt;comment&gt;--format&lt;/comment&gt; option:
+ 
+   &lt;info&gt;php artisan list --format=xml&lt;/info&gt;
+ 
+ It's also possible to get raw list of commands (useful for embedding command runner):
+ 
+   &lt;info&gt;php artisan list --raw&lt;/info&gt;</help>
+      <arguments>
+        <argument name="namespace" is_required="0" is_array="0">
+          <description>The namespace name</description>
+          <defaults/>
+        </argument>
+      </arguments>
+      <options>
+        <option name="--raw" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>To output raw command list</description>
+        </option>
+        <option name="--format" shortcut="" accept_value="1" is_value_required="1" is_multiple="0">
+          <description>The output format (txt, xml, json, or md)</description>
+          <defaults>
+            <default>txt</default>
+          </defaults>
+        </option>
+      </options>
+    </command>
+    <command id="migrate" name="migrate" hidden="0">
+      <usages>
+        <usage>migrate [--database [DATABASE]] [--force] [--path [PATH]] [--pretend] [--seed] [--step]</usage>
+      </usages>
+      <description>Run the database migrations</description>
+      <help>Run the database migrations</help>
+      <arguments/>
+      <options>
+        <option name="--database" shortcut="" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>The database connection to use.</description>
+          <defaults/>
+        </option>
+        <option name="--force" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Force the operation to run when in production.</description>
+        </option>
+        <option name="--path" shortcut="" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>The path of migrations files to be executed.</description>
+          <defaults/>
+        </option>
+        <option name="--pretend" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Dump the SQL queries that would be run.</description>
+        </option>
+        <option name="--seed" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Indicates if the seed task should be re-run.</description>
+        </option>
+        <option name="--step" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Force the migrations to be run so they can be rolled back individually.</description>
+        </option>
+        <option name="--help" shortcut="-h" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this help message</description>
+        </option>
+        <option name="--quiet" shortcut="-q" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not output any message</description>
+        </option>
+        <option name="--verbose" shortcut="-v" shortcuts="-v|-vv|-vvv" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</description>
+        </option>
+        <option name="--version" shortcut="-V" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this application version</description>
+        </option>
+        <option name="--ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Force ANSI output</description>
+        </option>
+        <option name="--no-ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Disable ANSI output</description>
+        </option>
+        <option name="--no-interaction" shortcut="-n" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not ask any interactive question</description>
+        </option>
+        <option name="--env" shortcut="" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>The environment the command should run under</description>
+          <defaults/>
+        </option>
+      </options>
+    </command>
+    <command id="optimize" name="optimize" hidden="0">
+      <usages>
+        <usage>optimize [--force] [--psr]</usage>
+      </usages>
+      <description>Optimize the framework for better performance (deprecated)</description>
+      <help>Optimize the framework for better performance (deprecated)</help>
+      <arguments/>
+      <options>
+        <option name="--force" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Force the compiled class file to be written (deprecated).</description>
+        </option>
+        <option name="--psr" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not optimize Composer dump-autoload.</description>
+        </option>
+        <option name="--help" shortcut="-h" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this help message</description>
+        </option>
+        <option name="--quiet" shortcut="-q" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not output any message</description>
+        </option>
+        <option name="--verbose" shortcut="-v" shortcuts="-v|-vv|-vvv" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</description>
+        </option>
+        <option name="--version" shortcut="-V" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this application version</description>
+        </option>
+        <option name="--ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Force ANSI output</description>
+        </option>
+        <option name="--no-ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Disable ANSI output</description>
+        </option>
+        <option name="--no-interaction" shortcut="-n" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not ask any interactive question</description>
+        </option>
+        <option name="--env" shortcut="" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>The environment the command should run under</description>
+          <defaults/>
+        </option>
+      </options>
+    </command>
+    <command id="preset" name="preset" hidden="0">
+      <usages>
+        <usage>preset &lt;type&gt;</usage>
+      </usages>
+      <description>Swap the front-end scaffolding for the application</description>
+      <help>Swap the front-end scaffolding for the application</help>
+      <arguments>
+        <argument name="type" is_required="1" is_array="0">
+          <description>The preset type (none, bootstrap, vue, react)</description>
+          <defaults/>
+        </argument>
+      </arguments>
+      <options>
+        <option name="--help" shortcut="-h" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this help message</description>
+        </option>
+        <option name="--quiet" shortcut="-q" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not output any message</description>
+        </option>
+        <option name="--verbose" shortcut="-v" shortcuts="-v|-vv|-vvv" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</description>
+        </option>
+        <option name="--version" shortcut="-V" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this application version</description>
+        </option>
+        <option name="--ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Force ANSI output</description>
+        </option>
+        <option name="--no-ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Disable ANSI output</description>
+        </option>
+        <option name="--no-interaction" shortcut="-n" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not ask any interactive question</description>
+        </option>
+        <option name="--env" shortcut="" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>The environment the command should run under</description>
+          <defaults/>
+        </option>
+      </options>
+    </command>
+    <command id="serve" name="serve" hidden="0">
+      <usages>
+        <usage>serve [--host [HOST]] [--port [PORT]]</usage>
+      </usages>
+      <description>Serve the application on the PHP development server</description>
+      <help>Serve the application on the PHP development server</help>
+      <arguments/>
+      <options>
+        <option name="--host" shortcut="" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>The host address to serve the application on.</description>
+          <defaults>
+            <default>127.0.0.1</default>
+          </defaults>
+        </option>
+        <option name="--port" shortcut="" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>The port to serve the application on.</description>
+          <defaults>
+            <default>8000</default>
+          </defaults>
+        </option>
+        <option name="--help" shortcut="-h" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this help message</description>
+        </option>
+        <option name="--quiet" shortcut="-q" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not output any message</description>
+        </option>
+        <option name="--verbose" shortcut="-v" shortcuts="-v|-vv|-vvv" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</description>
+        </option>
+        <option name="--version" shortcut="-V" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this application version</description>
+        </option>
+        <option name="--ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Force ANSI output</description>
+        </option>
+        <option name="--no-ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Disable ANSI output</description>
+        </option>
+        <option name="--no-interaction" shortcut="-n" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not ask any interactive question</description>
+        </option>
+        <option name="--env" shortcut="" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>The environment the command should run under</description>
+          <defaults/>
+        </option>
+      </options>
+    </command>
+    <command id="tinker" name="tinker" hidden="0">
+      <usages>
+        <usage>tinker [&lt;include&gt;]...</usage>
+      </usages>
+      <description>Interact with your application</description>
+      <help>Interact with your application</help>
+      <arguments>
+        <argument name="include" is_required="0" is_array="1">
+          <description>Include file(s) before starting tinker</description>
+          <defaults/>
+        </argument>
+      </arguments>
+      <options>
+        <option name="--help" shortcut="-h" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this help message</description>
+        </option>
+        <option name="--quiet" shortcut="-q" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not output any message</description>
+        </option>
+        <option name="--verbose" shortcut="-v" shortcuts="-v|-vv|-vvv" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</description>
+        </option>
+        <option name="--version" shortcut="-V" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this application version</description>
+        </option>
+        <option name="--ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Force ANSI output</description>
+        </option>
+        <option name="--no-ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Disable ANSI output</description>
+        </option>
+        <option name="--no-interaction" shortcut="-n" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not ask any interactive question</description>
+        </option>
+        <option name="--env" shortcut="" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>The environment the command should run under</description>
+          <defaults/>
+        </option>
+      </options>
+    </command>
+    <command id="up" name="up" hidden="0">
+      <usages>
+        <usage>up</usage>
+      </usages>
+      <description>Bring the application out of maintenance mode</description>
+      <help>Bring the application out of maintenance mode</help>
+      <arguments/>
+      <options>
+        <option name="--help" shortcut="-h" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this help message</description>
+        </option>
+        <option name="--quiet" shortcut="-q" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not output any message</description>
+        </option>
+        <option name="--verbose" shortcut="-v" shortcuts="-v|-vv|-vvv" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</description>
+        </option>
+        <option name="--version" shortcut="-V" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this application version</description>
+        </option>
+        <option name="--ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Force ANSI output</description>
+        </option>
+        <option name="--no-ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Disable ANSI output</description>
+        </option>
+        <option name="--no-interaction" shortcut="-n" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not ask any interactive question</description>
+        </option>
+        <option name="--env" shortcut="" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>The environment the command should run under</description>
+          <defaults/>
+        </option>
+      </options>
+    </command>
+    <command id="app:name" name="app:name" hidden="0">
+      <usages>
+        <usage>app:name &lt;name&gt;</usage>
+      </usages>
+      <description>Set the application namespace</description>
+      <help>Set the application namespace</help>
+      <arguments>
+        <argument name="name" is_required="1" is_array="0">
+          <description>The desired namespace.</description>
+          <defaults/>
+        </argument>
+      </arguments>
+      <options>
+        <option name="--help" shortcut="-h" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this help message</description>
+        </option>
+        <option name="--quiet" shortcut="-q" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not output any message</description>
+        </option>
+        <option name="--verbose" shortcut="-v" shortcuts="-v|-vv|-vvv" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</description>
+        </option>
+        <option name="--version" shortcut="-V" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this application version</description>
+        </option>
+        <option name="--ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Force ANSI output</description>
+        </option>
+        <option name="--no-ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Disable ANSI output</description>
+        </option>
+        <option name="--no-interaction" shortcut="-n" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not ask any interactive question</description>
+        </option>
+        <option name="--env" shortcut="" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>The environment the command should run under</description>
+          <defaults/>
+        </option>
+      </options>
+    </command>
+    <command id="auth:clear-resets" name="auth:clear-resets" hidden="0">
+      <usages>
+        <usage>auth:clear-resets [&lt;name&gt;]</usage>
+      </usages>
+      <description>Flush expired password reset tokens</description>
+      <help>Flush expired password reset tokens</help>
+      <arguments>
+        <argument name="name" is_required="0" is_array="0">
+          <description>The name of the password broker</description>
+          <defaults/>
+        </argument>
+      </arguments>
+      <options>
+        <option name="--help" shortcut="-h" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this help message</description>
+        </option>
+        <option name="--quiet" shortcut="-q" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not output any message</description>
+        </option>
+        <option name="--verbose" shortcut="-v" shortcuts="-v|-vv|-vvv" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</description>
+        </option>
+        <option name="--version" shortcut="-V" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this application version</description>
+        </option>
+        <option name="--ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Force ANSI output</description>
+        </option>
+        <option name="--no-ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Disable ANSI output</description>
+        </option>
+        <option name="--no-interaction" shortcut="-n" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not ask any interactive question</description>
+        </option>
+        <option name="--env" shortcut="" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>The environment the command should run under</description>
+          <defaults/>
+        </option>
+      </options>
+    </command>
+    <command id="cache:clear" name="cache:clear" hidden="0">
+      <usages>
+        <usage>cache:clear [--tags [TAGS]] [--] [&lt;store&gt;]</usage>
+      </usages>
+      <description>Flush the application cache</description>
+      <help>Flush the application cache</help>
+      <arguments>
+        <argument name="store" is_required="0" is_array="0">
+          <description>The name of the store you would like to clear.</description>
+          <defaults/>
+        </argument>
+      </arguments>
+      <options>
+        <option name="--tags" shortcut="" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>The cache tags you would like to clear.</description>
+          <defaults/>
+        </option>
+        <option name="--help" shortcut="-h" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this help message</description>
+        </option>
+        <option name="--quiet" shortcut="-q" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not output any message</description>
+        </option>
+        <option name="--verbose" shortcut="-v" shortcuts="-v|-vv|-vvv" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</description>
+        </option>
+        <option name="--version" shortcut="-V" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this application version</description>
+        </option>
+        <option name="--ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Force ANSI output</description>
+        </option>
+        <option name="--no-ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Disable ANSI output</description>
+        </option>
+        <option name="--no-interaction" shortcut="-n" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not ask any interactive question</description>
+        </option>
+        <option name="--env" shortcut="" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>The environment the command should run under</description>
+          <defaults/>
+        </option>
+      </options>
+    </command>
+    <command id="cache:forget" name="cache:forget" hidden="0">
+      <usages>
+        <usage>cache:forget &lt;key&gt; [&lt;store&gt;]</usage>
+      </usages>
+      <description>Remove an item from the cache</description>
+      <help>Remove an item from the cache</help>
+      <arguments>
+        <argument name="key" is_required="1" is_array="0">
+          <description>The key to remove</description>
+          <defaults/>
+        </argument>
+        <argument name="store" is_required="0" is_array="0">
+          <description>The store to remove the key from</description>
+          <defaults/>
+        </argument>
+      </arguments>
+      <options>
+        <option name="--help" shortcut="-h" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this help message</description>
+        </option>
+        <option name="--quiet" shortcut="-q" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not output any message</description>
+        </option>
+        <option name="--verbose" shortcut="-v" shortcuts="-v|-vv|-vvv" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</description>
+        </option>
+        <option name="--version" shortcut="-V" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this application version</description>
+        </option>
+        <option name="--ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Force ANSI output</description>
+        </option>
+        <option name="--no-ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Disable ANSI output</description>
+        </option>
+        <option name="--no-interaction" shortcut="-n" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not ask any interactive question</description>
+        </option>
+        <option name="--env" shortcut="" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>The environment the command should run under</description>
+          <defaults/>
+        </option>
+      </options>
+    </command>
+    <command id="cache:table" name="cache:table" hidden="0">
+      <usages>
+        <usage>cache:table</usage>
+      </usages>
+      <description>Create a migration for the cache database table</description>
+      <help>Create a migration for the cache database table</help>
+      <arguments/>
+      <options>
+        <option name="--help" shortcut="-h" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this help message</description>
+        </option>
+        <option name="--quiet" shortcut="-q" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not output any message</description>
+        </option>
+        <option name="--verbose" shortcut="-v" shortcuts="-v|-vv|-vvv" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</description>
+        </option>
+        <option name="--version" shortcut="-V" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this application version</description>
+        </option>
+        <option name="--ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Force ANSI output</description>
+        </option>
+        <option name="--no-ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Disable ANSI output</description>
+        </option>
+        <option name="--no-interaction" shortcut="-n" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not ask any interactive question</description>
+        </option>
+        <option name="--env" shortcut="" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>The environment the command should run under</description>
+          <defaults/>
+        </option>
+      </options>
+    </command>
+    <command id="config:cache" name="config:cache" hidden="0">
+      <usages>
+        <usage>config:cache</usage>
+      </usages>
+      <description>Create a cache file for faster configuration loading</description>
+      <help>Create a cache file for faster configuration loading</help>
+      <arguments/>
+      <options>
+        <option name="--help" shortcut="-h" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this help message</description>
+        </option>
+        <option name="--quiet" shortcut="-q" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not output any message</description>
+        </option>
+        <option name="--verbose" shortcut="-v" shortcuts="-v|-vv|-vvv" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</description>
+        </option>
+        <option name="--version" shortcut="-V" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this application version</description>
+        </option>
+        <option name="--ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Force ANSI output</description>
+        </option>
+        <option name="--no-ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Disable ANSI output</description>
+        </option>
+        <option name="--no-interaction" shortcut="-n" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not ask any interactive question</description>
+        </option>
+        <option name="--env" shortcut="" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>The environment the command should run under</description>
+          <defaults/>
+        </option>
+      </options>
+    </command>
+    <command id="config:clear" name="config:clear" hidden="0">
+      <usages>
+        <usage>config:clear</usage>
+      </usages>
+      <description>Remove the configuration cache file</description>
+      <help>Remove the configuration cache file</help>
+      <arguments/>
+      <options>
+        <option name="--help" shortcut="-h" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this help message</description>
+        </option>
+        <option name="--quiet" shortcut="-q" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not output any message</description>
+        </option>
+        <option name="--verbose" shortcut="-v" shortcuts="-v|-vv|-vvv" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</description>
+        </option>
+        <option name="--version" shortcut="-V" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this application version</description>
+        </option>
+        <option name="--ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Force ANSI output</description>
+        </option>
+        <option name="--no-ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Disable ANSI output</description>
+        </option>
+        <option name="--no-interaction" shortcut="-n" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not ask any interactive question</description>
+        </option>
+        <option name="--env" shortcut="" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>The environment the command should run under</description>
+          <defaults/>
+        </option>
+      </options>
+    </command>
+    <command id="db:seed" name="db:seed" hidden="0">
+      <usages>
+        <usage>db:seed [--class [CLASS]] [--database [DATABASE]] [--force]</usage>
+      </usages>
+      <description>Seed the database with records</description>
+      <help>Seed the database with records</help>
+      <arguments/>
+      <options>
+        <option name="--class" shortcut="" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>The class name of the root seeder</description>
+          <defaults>
+            <default>DatabaseSeeder</default>
+          </defaults>
+        </option>
+        <option name="--database" shortcut="" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>The database connection to seed</description>
+          <defaults/>
+        </option>
+        <option name="--force" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Force the operation to run when in production.</description>
+        </option>
+        <option name="--help" shortcut="-h" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this help message</description>
+        </option>
+        <option name="--quiet" shortcut="-q" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not output any message</description>
+        </option>
+        <option name="--verbose" shortcut="-v" shortcuts="-v|-vv|-vvv" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</description>
+        </option>
+        <option name="--version" shortcut="-V" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this application version</description>
+        </option>
+        <option name="--ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Force ANSI output</description>
+        </option>
+        <option name="--no-ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Disable ANSI output</description>
+        </option>
+        <option name="--no-interaction" shortcut="-n" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not ask any interactive question</description>
+        </option>
+        <option name="--env" shortcut="" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>The environment the command should run under</description>
+          <defaults/>
+        </option>
+      </options>
+    </command>
+    <command id="event:generate" name="event:generate" hidden="0">
+      <usages>
+        <usage>event:generate</usage>
+      </usages>
+      <description>Generate the missing events and listeners based on registration</description>
+      <help>Generate the missing events and listeners based on registration</help>
+      <arguments/>
+      <options>
+        <option name="--help" shortcut="-h" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this help message</description>
+        </option>
+        <option name="--quiet" shortcut="-q" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not output any message</description>
+        </option>
+        <option name="--verbose" shortcut="-v" shortcuts="-v|-vv|-vvv" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</description>
+        </option>
+        <option name="--version" shortcut="-V" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this application version</description>
+        </option>
+        <option name="--ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Force ANSI output</description>
+        </option>
+        <option name="--no-ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Disable ANSI output</description>
+        </option>
+        <option name="--no-interaction" shortcut="-n" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not ask any interactive question</description>
+        </option>
+        <option name="--env" shortcut="" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>The environment the command should run under</description>
+          <defaults/>
+        </option>
+      </options>
+    </command>
+    <command id="ide-helper:generate" name="ide-helper:generate" hidden="0">
+      <usages>
+        <usage>ide-helper:generate [-F|--format [FORMAT]] [-H|--helpers] [-M|--memory] [-S|--sublime] [--] [&lt;filename&gt;]</usage>
+      </usages>
+      <description>Generate a new IDE Helper file.</description>
+      <help>Generate a new IDE Helper file.</help>
+      <arguments>
+        <argument name="filename" is_required="0" is_array="0">
+          <description>The path to the helper file</description>
+          <defaults>
+            <default>_ide_helper</default>
+          </defaults>
+        </argument>
+      </arguments>
+      <options>
+        <option name="--format" shortcut="-F" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>The format for the IDE Helper</description>
+          <defaults>
+            <default>php</default>
+          </defaults>
+        </option>
+        <option name="--helpers" shortcut="-H" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Include the helper files</description>
+        </option>
+        <option name="--memory" shortcut="-M" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Use sqlite memory driver</description>
+        </option>
+        <option name="--sublime" shortcut="-S" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>DEPRECATED: Use different style for SublimeText CodeIntel</description>
+        </option>
+        <option name="--help" shortcut="-h" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this help message</description>
+        </option>
+        <option name="--quiet" shortcut="-q" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not output any message</description>
+        </option>
+        <option name="--verbose" shortcut="-v" shortcuts="-v|-vv|-vvv" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</description>
+        </option>
+        <option name="--version" shortcut="-V" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this application version</description>
+        </option>
+        <option name="--ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Force ANSI output</description>
+        </option>
+        <option name="--no-ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Disable ANSI output</description>
+        </option>
+        <option name="--no-interaction" shortcut="-n" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not ask any interactive question</description>
+        </option>
+        <option name="--env" shortcut="" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>The environment the command should run under</description>
+          <defaults/>
+        </option>
+      </options>
+    </command>
+    <command id="ide-helper:meta" name="ide-helper:meta" hidden="0">
+      <usages>
+        <usage>ide-helper:meta [-F|--filename [FILENAME]]</usage>
+      </usages>
+      <description>Generate metadata for PhpStorm</description>
+      <help>Generate metadata for PhpStorm</help>
+      <arguments/>
+      <options>
+        <option name="--filename" shortcut="-F" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>The path to the meta file</description>
+          <defaults>
+            <default>.phpstorm.meta.php</default>
+          </defaults>
+        </option>
+        <option name="--help" shortcut="-h" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this help message</description>
+        </option>
+        <option name="--quiet" shortcut="-q" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not output any message</description>
+        </option>
+        <option name="--verbose" shortcut="-v" shortcuts="-v|-vv|-vvv" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</description>
+        </option>
+        <option name="--version" shortcut="-V" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this application version</description>
+        </option>
+        <option name="--ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Force ANSI output</description>
+        </option>
+        <option name="--no-ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Disable ANSI output</description>
+        </option>
+        <option name="--no-interaction" shortcut="-n" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not ask any interactive question</description>
+        </option>
+        <option name="--env" shortcut="" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>The environment the command should run under</description>
+          <defaults/>
+        </option>
+      </options>
+    </command>
+    <command id="ide-helper:models" name="ide-helper:models" hidden="0">
+      <usages>
+        <usage>ide-helper:models [-F|--filename [FILENAME]] [-D|--dir [DIR]] [-W|--write] [-N|--nowrite] [-R|--reset] [-I|--ignore [IGNORE]] [--] [&lt;model&gt;]...</usage>
+      </usages>
+      <description>Generate autocompletion for models</description>
+      <help>Generate autocompletion for models</help>
+      <arguments>
+        <argument name="model" is_required="0" is_array="1">
+          <description>Which models to include</description>
+          <defaults/>
+        </argument>
+      </arguments>
+      <options>
+        <option name="--filename" shortcut="-F" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>The path to the helper file</description>
+          <defaults>
+            <default>_ide_helper_models.php</default>
+          </defaults>
+        </option>
+        <option name="--dir" shortcut="-D" accept_value="1" is_value_required="0" is_multiple="1">
+          <description>The model dir</description>
+          <defaults/>
+        </option>
+        <option name="--write" shortcut="-W" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Write to Model file</description>
+        </option>
+        <option name="--nowrite" shortcut="-N" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Don't write to Model file</description>
+        </option>
+        <option name="--reset" shortcut="-R" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Remove the original phpdocs instead of appending</description>
+        </option>
+        <option name="--ignore" shortcut="-I" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>Which models to ignore</description>
+          <defaults/>
+        </option>
+        <option name="--help" shortcut="-h" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this help message</description>
+        </option>
+        <option name="--quiet" shortcut="-q" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not output any message</description>
+        </option>
+        <option name="--verbose" shortcut="-v" shortcuts="-v|-vv|-vvv" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</description>
+        </option>
+        <option name="--version" shortcut="-V" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this application version</description>
+        </option>
+        <option name="--ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Force ANSI output</description>
+        </option>
+        <option name="--no-ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Disable ANSI output</description>
+        </option>
+        <option name="--no-interaction" shortcut="-n" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not ask any interactive question</description>
+        </option>
+        <option name="--env" shortcut="" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>The environment the command should run under</description>
+          <defaults/>
+        </option>
+      </options>
+    </command>
+    <command id="key:generate" name="key:generate" hidden="0">
+      <usages>
+        <usage>key:generate [--show] [--force]</usage>
+      </usages>
+      <description>Set the application key</description>
+      <help>Set the application key</help>
+      <arguments/>
+      <options>
+        <option name="--show" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display the key instead of modifying files</description>
+        </option>
+        <option name="--force" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Force the operation to run when in production</description>
+        </option>
+        <option name="--help" shortcut="-h" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this help message</description>
+        </option>
+        <option name="--quiet" shortcut="-q" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not output any message</description>
+        </option>
+        <option name="--verbose" shortcut="-v" shortcuts="-v|-vv|-vvv" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</description>
+        </option>
+        <option name="--version" shortcut="-V" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this application version</description>
+        </option>
+        <option name="--ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Force ANSI output</description>
+        </option>
+        <option name="--no-ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Disable ANSI output</description>
+        </option>
+        <option name="--no-interaction" shortcut="-n" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not ask any interactive question</description>
+        </option>
+        <option name="--env" shortcut="" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>The environment the command should run under</description>
+          <defaults/>
+        </option>
+      </options>
+    </command>
+    <command id="make:auth" name="make:auth" hidden="0">
+      <usages>
+        <usage>make:auth [--views] [--force]</usage>
+      </usages>
+      <description>Scaffold basic login and registration views and routes</description>
+      <help>Scaffold basic login and registration views and routes</help>
+      <arguments/>
+      <options>
+        <option name="--views" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Only scaffold the authentication views</description>
+        </option>
+        <option name="--force" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Overwrite existing views by default</description>
+        </option>
+        <option name="--help" shortcut="-h" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this help message</description>
+        </option>
+        <option name="--quiet" shortcut="-q" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not output any message</description>
+        </option>
+        <option name="--verbose" shortcut="-v" shortcuts="-v|-vv|-vvv" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</description>
+        </option>
+        <option name="--version" shortcut="-V" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this application version</description>
+        </option>
+        <option name="--ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Force ANSI output</description>
+        </option>
+        <option name="--no-ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Disable ANSI output</description>
+        </option>
+        <option name="--no-interaction" shortcut="-n" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not ask any interactive question</description>
+        </option>
+        <option name="--env" shortcut="" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>The environment the command should run under</description>
+          <defaults/>
+        </option>
+      </options>
+    </command>
+    <command id="make:command" name="make:command" hidden="0">
+      <usages>
+        <usage>make:command [--command [COMMAND]] [--] &lt;name&gt;</usage>
+      </usages>
+      <description>Create a new Artisan command</description>
+      <help>Create a new Artisan command</help>
+      <arguments>
+        <argument name="name" is_required="1" is_array="0">
+          <description>The name of the command.</description>
+          <defaults/>
+        </argument>
+      </arguments>
+      <options>
+        <option name="--command" shortcut="" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>The terminal command that should be assigned.</description>
+          <defaults>
+            <default>command:name</default>
+          </defaults>
+        </option>
+        <option name="--help" shortcut="-h" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this help message</description>
+        </option>
+        <option name="--quiet" shortcut="-q" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not output any message</description>
+        </option>
+        <option name="--verbose" shortcut="-v" shortcuts="-v|-vv|-vvv" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</description>
+        </option>
+        <option name="--version" shortcut="-V" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this application version</description>
+        </option>
+        <option name="--ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Force ANSI output</description>
+        </option>
+        <option name="--no-ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Disable ANSI output</description>
+        </option>
+        <option name="--no-interaction" shortcut="-n" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not ask any interactive question</description>
+        </option>
+        <option name="--env" shortcut="" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>The environment the command should run under</description>
+          <defaults/>
+        </option>
+      </options>
+    </command>
+    <command id="make:controller" name="make:controller" hidden="0">
+      <usages>
+        <usage>make:controller [-m|--model [MODEL]] [-r|--resource] [-p|--parent [PARENT]] [--] &lt;name&gt;</usage>
+      </usages>
+      <description>Create a new controller class</description>
+      <help>Create a new controller class</help>
+      <arguments>
+        <argument name="name" is_required="1" is_array="0">
+          <description>The name of the class</description>
+          <defaults/>
+        </argument>
+      </arguments>
+      <options>
+        <option name="--model" shortcut="-m" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>Generate a resource controller for the given model.</description>
+          <defaults/>
+        </option>
+        <option name="--resource" shortcut="-r" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Generate a resource controller class.</description>
+        </option>
+        <option name="--parent" shortcut="-p" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>Generate a nested resource controller class.</description>
+          <defaults/>
+        </option>
+        <option name="--help" shortcut="-h" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this help message</description>
+        </option>
+        <option name="--quiet" shortcut="-q" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not output any message</description>
+        </option>
+        <option name="--verbose" shortcut="-v" shortcuts="-v|-vv|-vvv" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</description>
+        </option>
+        <option name="--version" shortcut="-V" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this application version</description>
+        </option>
+        <option name="--ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Force ANSI output</description>
+        </option>
+        <option name="--no-ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Disable ANSI output</description>
+        </option>
+        <option name="--no-interaction" shortcut="-n" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not ask any interactive question</description>
+        </option>
+        <option name="--env" shortcut="" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>The environment the command should run under</description>
+          <defaults/>
+        </option>
+      </options>
+    </command>
+    <command id="make:event" name="make:event" hidden="0">
+      <usages>
+        <usage>make:event &lt;name&gt;</usage>
+      </usages>
+      <description>Create a new event class</description>
+      <help>Create a new event class</help>
+      <arguments>
+        <argument name="name" is_required="1" is_array="0">
+          <description>The name of the class</description>
+          <defaults/>
+        </argument>
+      </arguments>
+      <options>
+        <option name="--help" shortcut="-h" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this help message</description>
+        </option>
+        <option name="--quiet" shortcut="-q" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not output any message</description>
+        </option>
+        <option name="--verbose" shortcut="-v" shortcuts="-v|-vv|-vvv" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</description>
+        </option>
+        <option name="--version" shortcut="-V" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this application version</description>
+        </option>
+        <option name="--ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Force ANSI output</description>
+        </option>
+        <option name="--no-ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Disable ANSI output</description>
+        </option>
+        <option name="--no-interaction" shortcut="-n" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not ask any interactive question</description>
+        </option>
+        <option name="--env" shortcut="" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>The environment the command should run under</description>
+          <defaults/>
+        </option>
+      </options>
+    </command>
+    <command id="make:exception" name="make:exception" hidden="0">
+      <usages>
+        <usage>make:exception [--render] [--report] [--] &lt;name&gt;</usage>
+      </usages>
+      <description>Create a new custom exception class</description>
+      <help>Create a new custom exception class</help>
+      <arguments>
+        <argument name="name" is_required="1" is_array="0">
+          <description>The name of the class</description>
+          <defaults/>
+        </argument>
+      </arguments>
+      <options>
+        <option name="--render" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Create the exception with an empty render method.</description>
+        </option>
+        <option name="--report" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Create the exception with an empty report method.</description>
+        </option>
+        <option name="--help" shortcut="-h" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this help message</description>
+        </option>
+        <option name="--quiet" shortcut="-q" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not output any message</description>
+        </option>
+        <option name="--verbose" shortcut="-v" shortcuts="-v|-vv|-vvv" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</description>
+        </option>
+        <option name="--version" shortcut="-V" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this application version</description>
+        </option>
+        <option name="--ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Force ANSI output</description>
+        </option>
+        <option name="--no-ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Disable ANSI output</description>
+        </option>
+        <option name="--no-interaction" shortcut="-n" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not ask any interactive question</description>
+        </option>
+        <option name="--env" shortcut="" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>The environment the command should run under</description>
+          <defaults/>
+        </option>
+      </options>
+    </command>
+    <command id="make:factory" name="make:factory" hidden="0">
+      <usages>
+        <usage>make:factory [-m|--model [MODEL]] [--] &lt;name&gt;</usage>
+      </usages>
+      <description>Create a new model factory</description>
+      <help>Create a new model factory</help>
+      <arguments>
+        <argument name="name" is_required="1" is_array="0">
+          <description>The name of the class</description>
+          <defaults/>
+        </argument>
+      </arguments>
+      <options>
+        <option name="--model" shortcut="-m" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>The name of the model</description>
+          <defaults/>
+        </option>
+        <option name="--help" shortcut="-h" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this help message</description>
+        </option>
+        <option name="--quiet" shortcut="-q" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not output any message</description>
+        </option>
+        <option name="--verbose" shortcut="-v" shortcuts="-v|-vv|-vvv" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</description>
+        </option>
+        <option name="--version" shortcut="-V" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this application version</description>
+        </option>
+        <option name="--ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Force ANSI output</description>
+        </option>
+        <option name="--no-ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Disable ANSI output</description>
+        </option>
+        <option name="--no-interaction" shortcut="-n" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not ask any interactive question</description>
+        </option>
+        <option name="--env" shortcut="" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>The environment the command should run under</description>
+          <defaults/>
+        </option>
+      </options>
+    </command>
+    <command id="make:job" name="make:job" hidden="0">
+      <usages>
+        <usage>make:job [--sync] [--] &lt;name&gt;</usage>
+      </usages>
+      <description>Create a new job class</description>
+      <help>Create a new job class</help>
+      <arguments>
+        <argument name="name" is_required="1" is_array="0">
+          <description>The name of the class</description>
+          <defaults/>
+        </argument>
+      </arguments>
+      <options>
+        <option name="--sync" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Indicates that job should be synchronous.</description>
+        </option>
+        <option name="--help" shortcut="-h" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this help message</description>
+        </option>
+        <option name="--quiet" shortcut="-q" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not output any message</description>
+        </option>
+        <option name="--verbose" shortcut="-v" shortcuts="-v|-vv|-vvv" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</description>
+        </option>
+        <option name="--version" shortcut="-V" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this application version</description>
+        </option>
+        <option name="--ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Force ANSI output</description>
+        </option>
+        <option name="--no-ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Disable ANSI output</description>
+        </option>
+        <option name="--no-interaction" shortcut="-n" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not ask any interactive question</description>
+        </option>
+        <option name="--env" shortcut="" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>The environment the command should run under</description>
+          <defaults/>
+        </option>
+      </options>
+    </command>
+    <command id="make:listener" name="make:listener" hidden="0">
+      <usages>
+        <usage>make:listener [-e|--event [EVENT]] [--queued] [--] &lt;name&gt;</usage>
+      </usages>
+      <description>Create a new event listener class</description>
+      <help>Create a new event listener class</help>
+      <arguments>
+        <argument name="name" is_required="1" is_array="0">
+          <description>The name of the class</description>
+          <defaults/>
+        </argument>
+      </arguments>
+      <options>
+        <option name="--event" shortcut="-e" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>The event class being listened for.</description>
+          <defaults/>
+        </option>
+        <option name="--queued" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Indicates the event listener should be queued.</description>
+        </option>
+        <option name="--help" shortcut="-h" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this help message</description>
+        </option>
+        <option name="--quiet" shortcut="-q" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not output any message</description>
+        </option>
+        <option name="--verbose" shortcut="-v" shortcuts="-v|-vv|-vvv" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</description>
+        </option>
+        <option name="--version" shortcut="-V" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this application version</description>
+        </option>
+        <option name="--ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Force ANSI output</description>
+        </option>
+        <option name="--no-ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Disable ANSI output</description>
+        </option>
+        <option name="--no-interaction" shortcut="-n" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not ask any interactive question</description>
+        </option>
+        <option name="--env" shortcut="" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>The environment the command should run under</description>
+          <defaults/>
+        </option>
+      </options>
+    </command>
+    <command id="make:mail" name="make:mail" hidden="0">
+      <usages>
+        <usage>make:mail [-f|--force] [-m|--markdown [MARKDOWN]] [--] &lt;name&gt;</usage>
+      </usages>
+      <description>Create a new email class</description>
+      <help>Create a new email class</help>
+      <arguments>
+        <argument name="name" is_required="1" is_array="0">
+          <description>The name of the class</description>
+          <defaults/>
+        </argument>
+      </arguments>
+      <options>
+        <option name="--force" shortcut="-f" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Create the class even if the mailable already exists.</description>
+        </option>
+        <option name="--markdown" shortcut="-m" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>Create a new Markdown template for the mailable.</description>
+          <defaults/>
+        </option>
+        <option name="--help" shortcut="-h" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this help message</description>
+        </option>
+        <option name="--quiet" shortcut="-q" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not output any message</description>
+        </option>
+        <option name="--verbose" shortcut="-v" shortcuts="-v|-vv|-vvv" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</description>
+        </option>
+        <option name="--version" shortcut="-V" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this application version</description>
+        </option>
+        <option name="--ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Force ANSI output</description>
+        </option>
+        <option name="--no-ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Disable ANSI output</description>
+        </option>
+        <option name="--no-interaction" shortcut="-n" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not ask any interactive question</description>
+        </option>
+        <option name="--env" shortcut="" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>The environment the command should run under</description>
+          <defaults/>
+        </option>
+      </options>
+    </command>
+    <command id="make:middleware" name="make:middleware" hidden="0">
+      <usages>
+        <usage>make:middleware &lt;name&gt;</usage>
+      </usages>
+      <description>Create a new middleware class</description>
+      <help>Create a new middleware class</help>
+      <arguments>
+        <argument name="name" is_required="1" is_array="0">
+          <description>The name of the class</description>
+          <defaults/>
+        </argument>
+      </arguments>
+      <options>
+        <option name="--help" shortcut="-h" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this help message</description>
+        </option>
+        <option name="--quiet" shortcut="-q" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not output any message</description>
+        </option>
+        <option name="--verbose" shortcut="-v" shortcuts="-v|-vv|-vvv" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</description>
+        </option>
+        <option name="--version" shortcut="-V" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this application version</description>
+        </option>
+        <option name="--ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Force ANSI output</description>
+        </option>
+        <option name="--no-ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Disable ANSI output</description>
+        </option>
+        <option name="--no-interaction" shortcut="-n" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not ask any interactive question</description>
+        </option>
+        <option name="--env" shortcut="" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>The environment the command should run under</description>
+          <defaults/>
+        </option>
+      </options>
+    </command>
+    <command id="make:migration" name="make:migration" hidden="0">
+      <usages>
+        <usage>make:migration [--create [CREATE]] [--table [TABLE]] [--path [PATH]] [--] &lt;name&gt;</usage>
+      </usages>
+      <description>Create a new migration file</description>
+      <help>Create a new migration file</help>
+      <arguments>
+        <argument name="name" is_required="1" is_array="0">
+          <description>The name of the migration.</description>
+          <defaults/>
+        </argument>
+      </arguments>
+      <options>
+        <option name="--create" shortcut="" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>The table to be created.</description>
+          <defaults/>
+        </option>
+        <option name="--table" shortcut="" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>The table to migrate.</description>
+          <defaults/>
+        </option>
+        <option name="--path" shortcut="" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>The location where the migration file should be created.</description>
+          <defaults/>
+        </option>
+        <option name="--help" shortcut="-h" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this help message</description>
+        </option>
+        <option name="--quiet" shortcut="-q" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not output any message</description>
+        </option>
+        <option name="--verbose" shortcut="-v" shortcuts="-v|-vv|-vvv" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</description>
+        </option>
+        <option name="--version" shortcut="-V" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this application version</description>
+        </option>
+        <option name="--ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Force ANSI output</description>
+        </option>
+        <option name="--no-ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Disable ANSI output</description>
+        </option>
+        <option name="--no-interaction" shortcut="-n" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not ask any interactive question</description>
+        </option>
+        <option name="--env" shortcut="" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>The environment the command should run under</description>
+          <defaults/>
+        </option>
+      </options>
+    </command>
+    <command id="make:model" name="make:model" hidden="0">
+      <usages>
+        <usage>make:model [-a|--all] [-c|--controller] [-f|--factory] [--force] [-m|--migration] [-r|--resource] [--] &lt;name&gt;</usage>
+      </usages>
+      <description>Create a new Eloquent model class</description>
+      <help>Create a new Eloquent model class</help>
+      <arguments>
+        <argument name="name" is_required="1" is_array="0">
+          <description>The name of the class</description>
+          <defaults/>
+        </argument>
+      </arguments>
+      <options>
+        <option name="--all" shortcut="-a" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Generate a migration, factory, and resource controller for the model</description>
+        </option>
+        <option name="--controller" shortcut="-c" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Create a new controller for the model</description>
+        </option>
+        <option name="--factory" shortcut="-f" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Create a new factory for the model</description>
+        </option>
+        <option name="--force" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Create the class even if the model already exists.</description>
+        </option>
+        <option name="--migration" shortcut="-m" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Create a new migration file for the model.</description>
+        </option>
+        <option name="--resource" shortcut="-r" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Indicates if the generated controller should be a resource controller.</description>
+        </option>
+        <option name="--help" shortcut="-h" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this help message</description>
+        </option>
+        <option name="--quiet" shortcut="-q" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not output any message</description>
+        </option>
+        <option name="--verbose" shortcut="-v" shortcuts="-v|-vv|-vvv" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</description>
+        </option>
+        <option name="--version" shortcut="-V" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this application version</description>
+        </option>
+        <option name="--ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Force ANSI output</description>
+        </option>
+        <option name="--no-ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Disable ANSI output</description>
+        </option>
+        <option name="--no-interaction" shortcut="-n" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not ask any interactive question</description>
+        </option>
+        <option name="--env" shortcut="" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>The environment the command should run under</description>
+          <defaults/>
+        </option>
+      </options>
+    </command>
+    <command id="make:notification" name="make:notification" hidden="0">
+      <usages>
+        <usage>make:notification [-f|--force] [-m|--markdown [MARKDOWN]] [--] &lt;name&gt;</usage>
+      </usages>
+      <description>Create a new notification class</description>
+      <help>Create a new notification class</help>
+      <arguments>
+        <argument name="name" is_required="1" is_array="0">
+          <description>The name of the class</description>
+          <defaults/>
+        </argument>
+      </arguments>
+      <options>
+        <option name="--force" shortcut="-f" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Create the class even if the notification already exists.</description>
+        </option>
+        <option name="--markdown" shortcut="-m" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>Create a new Markdown template for the notification.</description>
+          <defaults/>
+        </option>
+        <option name="--help" shortcut="-h" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this help message</description>
+        </option>
+        <option name="--quiet" shortcut="-q" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not output any message</description>
+        </option>
+        <option name="--verbose" shortcut="-v" shortcuts="-v|-vv|-vvv" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</description>
+        </option>
+        <option name="--version" shortcut="-V" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this application version</description>
+        </option>
+        <option name="--ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Force ANSI output</description>
+        </option>
+        <option name="--no-ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Disable ANSI output</description>
+        </option>
+        <option name="--no-interaction" shortcut="-n" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not ask any interactive question</description>
+        </option>
+        <option name="--env" shortcut="" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>The environment the command should run under</description>
+          <defaults/>
+        </option>
+      </options>
+    </command>
+    <command id="make:policy" name="make:policy" hidden="0">
+      <usages>
+        <usage>make:policy [-m|--model [MODEL]] [--] &lt;name&gt;</usage>
+      </usages>
+      <description>Create a new policy class</description>
+      <help>Create a new policy class</help>
+      <arguments>
+        <argument name="name" is_required="1" is_array="0">
+          <description>The name of the class</description>
+          <defaults/>
+        </argument>
+      </arguments>
+      <options>
+        <option name="--model" shortcut="-m" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>The model that the policy applies to.</description>
+          <defaults/>
+        </option>
+        <option name="--help" shortcut="-h" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this help message</description>
+        </option>
+        <option name="--quiet" shortcut="-q" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not output any message</description>
+        </option>
+        <option name="--verbose" shortcut="-v" shortcuts="-v|-vv|-vvv" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</description>
+        </option>
+        <option name="--version" shortcut="-V" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this application version</description>
+        </option>
+        <option name="--ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Force ANSI output</description>
+        </option>
+        <option name="--no-ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Disable ANSI output</description>
+        </option>
+        <option name="--no-interaction" shortcut="-n" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not ask any interactive question</description>
+        </option>
+        <option name="--env" shortcut="" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>The environment the command should run under</description>
+          <defaults/>
+        </option>
+      </options>
+    </command>
+    <command id="make:provider" name="make:provider" hidden="0">
+      <usages>
+        <usage>make:provider &lt;name&gt;</usage>
+      </usages>
+      <description>Create a new service provider class</description>
+      <help>Create a new service provider class</help>
+      <arguments>
+        <argument name="name" is_required="1" is_array="0">
+          <description>The name of the class</description>
+          <defaults/>
+        </argument>
+      </arguments>
+      <options>
+        <option name="--help" shortcut="-h" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this help message</description>
+        </option>
+        <option name="--quiet" shortcut="-q" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not output any message</description>
+        </option>
+        <option name="--verbose" shortcut="-v" shortcuts="-v|-vv|-vvv" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</description>
+        </option>
+        <option name="--version" shortcut="-V" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this application version</description>
+        </option>
+        <option name="--ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Force ANSI output</description>
+        </option>
+        <option name="--no-ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Disable ANSI output</description>
+        </option>
+        <option name="--no-interaction" shortcut="-n" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not ask any interactive question</description>
+        </option>
+        <option name="--env" shortcut="" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>The environment the command should run under</description>
+          <defaults/>
+        </option>
+      </options>
+    </command>
+    <command id="make:request" name="make:request" hidden="0">
+      <usages>
+        <usage>make:request &lt;name&gt;</usage>
+      </usages>
+      <description>Create a new form request class</description>
+      <help>Create a new form request class</help>
+      <arguments>
+        <argument name="name" is_required="1" is_array="0">
+          <description>The name of the class</description>
+          <defaults/>
+        </argument>
+      </arguments>
+      <options>
+        <option name="--help" shortcut="-h" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this help message</description>
+        </option>
+        <option name="--quiet" shortcut="-q" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not output any message</description>
+        </option>
+        <option name="--verbose" shortcut="-v" shortcuts="-v|-vv|-vvv" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</description>
+        </option>
+        <option name="--version" shortcut="-V" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this application version</description>
+        </option>
+        <option name="--ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Force ANSI output</description>
+        </option>
+        <option name="--no-ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Disable ANSI output</description>
+        </option>
+        <option name="--no-interaction" shortcut="-n" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not ask any interactive question</description>
+        </option>
+        <option name="--env" shortcut="" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>The environment the command should run under</description>
+          <defaults/>
+        </option>
+      </options>
+    </command>
+    <command id="make:resource" name="make:resource" hidden="0">
+      <usages>
+        <usage>make:resource [-c|--collection] [--] &lt;name&gt;</usage>
+      </usages>
+      <description>Create a new resource</description>
+      <help>Create a new resource</help>
+      <arguments>
+        <argument name="name" is_required="1" is_array="0">
+          <description>The name of the class</description>
+          <defaults/>
+        </argument>
+      </arguments>
+      <options>
+        <option name="--collection" shortcut="-c" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Create a resource collection.</description>
+        </option>
+        <option name="--help" shortcut="-h" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this help message</description>
+        </option>
+        <option name="--quiet" shortcut="-q" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not output any message</description>
+        </option>
+        <option name="--verbose" shortcut="-v" shortcuts="-v|-vv|-vvv" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</description>
+        </option>
+        <option name="--version" shortcut="-V" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this application version</description>
+        </option>
+        <option name="--ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Force ANSI output</description>
+        </option>
+        <option name="--no-ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Disable ANSI output</description>
+        </option>
+        <option name="--no-interaction" shortcut="-n" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not ask any interactive question</description>
+        </option>
+        <option name="--env" shortcut="" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>The environment the command should run under</description>
+          <defaults/>
+        </option>
+      </options>
+    </command>
+    <command id="make:rule" name="make:rule" hidden="0">
+      <usages>
+        <usage>make:rule &lt;name&gt;</usage>
+      </usages>
+      <description>Create a new validation rule</description>
+      <help>Create a new validation rule</help>
+      <arguments>
+        <argument name="name" is_required="1" is_array="0">
+          <description>The name of the class</description>
+          <defaults/>
+        </argument>
+      </arguments>
+      <options>
+        <option name="--help" shortcut="-h" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this help message</description>
+        </option>
+        <option name="--quiet" shortcut="-q" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not output any message</description>
+        </option>
+        <option name="--verbose" shortcut="-v" shortcuts="-v|-vv|-vvv" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</description>
+        </option>
+        <option name="--version" shortcut="-V" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this application version</description>
+        </option>
+        <option name="--ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Force ANSI output</description>
+        </option>
+        <option name="--no-ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Disable ANSI output</description>
+        </option>
+        <option name="--no-interaction" shortcut="-n" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not ask any interactive question</description>
+        </option>
+        <option name="--env" shortcut="" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>The environment the command should run under</description>
+          <defaults/>
+        </option>
+      </options>
+    </command>
+    <command id="make:seeder" name="make:seeder" hidden="0">
+      <usages>
+        <usage>make:seeder &lt;name&gt;</usage>
+      </usages>
+      <description>Create a new seeder class</description>
+      <help>Create a new seeder class</help>
+      <arguments>
+        <argument name="name" is_required="1" is_array="0">
+          <description>The name of the class</description>
+          <defaults/>
+        </argument>
+      </arguments>
+      <options>
+        <option name="--help" shortcut="-h" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this help message</description>
+        </option>
+        <option name="--quiet" shortcut="-q" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not output any message</description>
+        </option>
+        <option name="--verbose" shortcut="-v" shortcuts="-v|-vv|-vvv" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</description>
+        </option>
+        <option name="--version" shortcut="-V" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this application version</description>
+        </option>
+        <option name="--ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Force ANSI output</description>
+        </option>
+        <option name="--no-ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Disable ANSI output</description>
+        </option>
+        <option name="--no-interaction" shortcut="-n" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not ask any interactive question</description>
+        </option>
+        <option name="--env" shortcut="" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>The environment the command should run under</description>
+          <defaults/>
+        </option>
+      </options>
+    </command>
+    <command id="make:test" name="make:test" hidden="0">
+      <usages>
+        <usage>make:test [--unit] [--] &lt;name&gt;</usage>
+      </usages>
+      <description>Create a new test class</description>
+      <help>Create a new test class</help>
+      <arguments>
+        <argument name="name" is_required="1" is_array="0">
+          <description>The name of the class</description>
+          <defaults/>
+        </argument>
+      </arguments>
+      <options>
+        <option name="--unit" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Create a unit test</description>
+        </option>
+        <option name="--help" shortcut="-h" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this help message</description>
+        </option>
+        <option name="--quiet" shortcut="-q" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not output any message</description>
+        </option>
+        <option name="--verbose" shortcut="-v" shortcuts="-v|-vv|-vvv" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</description>
+        </option>
+        <option name="--version" shortcut="-V" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this application version</description>
+        </option>
+        <option name="--ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Force ANSI output</description>
+        </option>
+        <option name="--no-ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Disable ANSI output</description>
+        </option>
+        <option name="--no-interaction" shortcut="-n" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not ask any interactive question</description>
+        </option>
+        <option name="--env" shortcut="" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>The environment the command should run under</description>
+          <defaults/>
+        </option>
+      </options>
+    </command>
+    <command id="migrate:fresh" name="migrate:fresh" hidden="0">
+      <usages>
+        <usage>migrate:fresh [--database [DATABASE]] [--force] [--path [PATH]] [--seed] [--seeder [SEEDER]]</usage>
+      </usages>
+      <description>Drop all tables and re-run all migrations</description>
+      <help>Drop all tables and re-run all migrations</help>
+      <arguments/>
+      <options>
+        <option name="--database" shortcut="" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>The database connection to use.</description>
+          <defaults/>
+        </option>
+        <option name="--force" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Force the operation to run when in production.</description>
+        </option>
+        <option name="--path" shortcut="" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>The path of migrations files to be executed.</description>
+          <defaults/>
+        </option>
+        <option name="--seed" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Indicates if the seed task should be re-run.</description>
+        </option>
+        <option name="--seeder" shortcut="" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>The class name of the root seeder.</description>
+          <defaults/>
+        </option>
+        <option name="--help" shortcut="-h" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this help message</description>
+        </option>
+        <option name="--quiet" shortcut="-q" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not output any message</description>
+        </option>
+        <option name="--verbose" shortcut="-v" shortcuts="-v|-vv|-vvv" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</description>
+        </option>
+        <option name="--version" shortcut="-V" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this application version</description>
+        </option>
+        <option name="--ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Force ANSI output</description>
+        </option>
+        <option name="--no-ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Disable ANSI output</description>
+        </option>
+        <option name="--no-interaction" shortcut="-n" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not ask any interactive question</description>
+        </option>
+        <option name="--env" shortcut="" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>The environment the command should run under</description>
+          <defaults/>
+        </option>
+      </options>
+    </command>
+    <command id="migrate:install" name="migrate:install" hidden="0">
+      <usages>
+        <usage>migrate:install [--database [DATABASE]]</usage>
+      </usages>
+      <description>Create the migration repository</description>
+      <help>Create the migration repository</help>
+      <arguments/>
+      <options>
+        <option name="--database" shortcut="" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>The database connection to use.</description>
+          <defaults/>
+        </option>
+        <option name="--help" shortcut="-h" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this help message</description>
+        </option>
+        <option name="--quiet" shortcut="-q" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not output any message</description>
+        </option>
+        <option name="--verbose" shortcut="-v" shortcuts="-v|-vv|-vvv" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</description>
+        </option>
+        <option name="--version" shortcut="-V" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this application version</description>
+        </option>
+        <option name="--ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Force ANSI output</description>
+        </option>
+        <option name="--no-ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Disable ANSI output</description>
+        </option>
+        <option name="--no-interaction" shortcut="-n" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not ask any interactive question</description>
+        </option>
+        <option name="--env" shortcut="" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>The environment the command should run under</description>
+          <defaults/>
+        </option>
+      </options>
+    </command>
+    <command id="migrate:refresh" name="migrate:refresh" hidden="0">
+      <usages>
+        <usage>migrate:refresh [--database [DATABASE]] [--force] [--path [PATH]] [--seed] [--seeder [SEEDER]] [--step [STEP]]</usage>
+      </usages>
+      <description>Reset and re-run all migrations</description>
+      <help>Reset and re-run all migrations</help>
+      <arguments/>
+      <options>
+        <option name="--database" shortcut="" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>The database connection to use.</description>
+          <defaults/>
+        </option>
+        <option name="--force" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Force the operation to run when in production.</description>
+        </option>
+        <option name="--path" shortcut="" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>The path of migrations files to be executed.</description>
+          <defaults/>
+        </option>
+        <option name="--seed" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Indicates if the seed task should be re-run.</description>
+        </option>
+        <option name="--seeder" shortcut="" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>The class name of the root seeder.</description>
+          <defaults/>
+        </option>
+        <option name="--step" shortcut="" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>The number of migrations to be reverted &amp; re-run.</description>
+          <defaults/>
+        </option>
+        <option name="--help" shortcut="-h" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this help message</description>
+        </option>
+        <option name="--quiet" shortcut="-q" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not output any message</description>
+        </option>
+        <option name="--verbose" shortcut="-v" shortcuts="-v|-vv|-vvv" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</description>
+        </option>
+        <option name="--version" shortcut="-V" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this application version</description>
+        </option>
+        <option name="--ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Force ANSI output</description>
+        </option>
+        <option name="--no-ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Disable ANSI output</description>
+        </option>
+        <option name="--no-interaction" shortcut="-n" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not ask any interactive question</description>
+        </option>
+        <option name="--env" shortcut="" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>The environment the command should run under</description>
+          <defaults/>
+        </option>
+      </options>
+    </command>
+    <command id="migrate:reset" name="migrate:reset" hidden="0">
+      <usages>
+        <usage>migrate:reset [--database [DATABASE]] [--force] [--path [PATH]] [--pretend]</usage>
+      </usages>
+      <description>Rollback all database migrations</description>
+      <help>Rollback all database migrations</help>
+      <arguments/>
+      <options>
+        <option name="--database" shortcut="" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>The database connection to use.</description>
+          <defaults/>
+        </option>
+        <option name="--force" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Force the operation to run when in production.</description>
+        </option>
+        <option name="--path" shortcut="" accept_value="1" is_value_required="0" is_multiple="1">
+          <description>The path(s) of migrations files to be executed.</description>
+          <defaults/>
+        </option>
+        <option name="--pretend" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Dump the SQL queries that would be run.</description>
+        </option>
+        <option name="--help" shortcut="-h" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this help message</description>
+        </option>
+        <option name="--quiet" shortcut="-q" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not output any message</description>
+        </option>
+        <option name="--verbose" shortcut="-v" shortcuts="-v|-vv|-vvv" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</description>
+        </option>
+        <option name="--version" shortcut="-V" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this application version</description>
+        </option>
+        <option name="--ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Force ANSI output</description>
+        </option>
+        <option name="--no-ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Disable ANSI output</description>
+        </option>
+        <option name="--no-interaction" shortcut="-n" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not ask any interactive question</description>
+        </option>
+        <option name="--env" shortcut="" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>The environment the command should run under</description>
+          <defaults/>
+        </option>
+      </options>
+    </command>
+    <command id="migrate:rollback" name="migrate:rollback" hidden="0">
+      <usages>
+        <usage>migrate:rollback [--database [DATABASE]] [--force] [--path [PATH]] [--pretend] [--step [STEP]]</usage>
+      </usages>
+      <description>Rollback the last database migration</description>
+      <help>Rollback the last database migration</help>
+      <arguments/>
+      <options>
+        <option name="--database" shortcut="" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>The database connection to use.</description>
+          <defaults/>
+        </option>
+        <option name="--force" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Force the operation to run when in production.</description>
+        </option>
+        <option name="--path" shortcut="" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>The path of migrations files to be executed.</description>
+          <defaults/>
+        </option>
+        <option name="--pretend" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Dump the SQL queries that would be run.</description>
+        </option>
+        <option name="--step" shortcut="" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>The number of migrations to be reverted.</description>
+          <defaults/>
+        </option>
+        <option name="--help" shortcut="-h" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this help message</description>
+        </option>
+        <option name="--quiet" shortcut="-q" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not output any message</description>
+        </option>
+        <option name="--verbose" shortcut="-v" shortcuts="-v|-vv|-vvv" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</description>
+        </option>
+        <option name="--version" shortcut="-V" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this application version</description>
+        </option>
+        <option name="--ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Force ANSI output</description>
+        </option>
+        <option name="--no-ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Disable ANSI output</description>
+        </option>
+        <option name="--no-interaction" shortcut="-n" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not ask any interactive question</description>
+        </option>
+        <option name="--env" shortcut="" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>The environment the command should run under</description>
+          <defaults/>
+        </option>
+      </options>
+    </command>
+    <command id="migrate:status" name="migrate:status" hidden="0">
+      <usages>
+        <usage>migrate:status [--database [DATABASE]] [--path [PATH]]</usage>
+      </usages>
+      <description>Show the status of each migration</description>
+      <help>Show the status of each migration</help>
+      <arguments/>
+      <options>
+        <option name="--database" shortcut="" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>The database connection to use.</description>
+          <defaults/>
+        </option>
+        <option name="--path" shortcut="" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>The path of migrations files to use.</description>
+          <defaults/>
+        </option>
+        <option name="--help" shortcut="-h" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this help message</description>
+        </option>
+        <option name="--quiet" shortcut="-q" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not output any message</description>
+        </option>
+        <option name="--verbose" shortcut="-v" shortcuts="-v|-vv|-vvv" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</description>
+        </option>
+        <option name="--version" shortcut="-V" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this application version</description>
+        </option>
+        <option name="--ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Force ANSI output</description>
+        </option>
+        <option name="--no-ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Disable ANSI output</description>
+        </option>
+        <option name="--no-interaction" shortcut="-n" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not ask any interactive question</description>
+        </option>
+        <option name="--env" shortcut="" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>The environment the command should run under</description>
+          <defaults/>
+        </option>
+      </options>
+    </command>
+    <command id="notifications:table" name="notifications:table" hidden="0">
+      <usages>
+        <usage>notifications:table</usage>
+      </usages>
+      <description>Create a migration for the notifications table</description>
+      <help>Create a migration for the notifications table</help>
+      <arguments/>
+      <options>
+        <option name="--help" shortcut="-h" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this help message</description>
+        </option>
+        <option name="--quiet" shortcut="-q" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not output any message</description>
+        </option>
+        <option name="--verbose" shortcut="-v" shortcuts="-v|-vv|-vvv" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</description>
+        </option>
+        <option name="--version" shortcut="-V" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this application version</description>
+        </option>
+        <option name="--ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Force ANSI output</description>
+        </option>
+        <option name="--no-ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Disable ANSI output</description>
+        </option>
+        <option name="--no-interaction" shortcut="-n" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not ask any interactive question</description>
+        </option>
+        <option name="--env" shortcut="" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>The environment the command should run under</description>
+          <defaults/>
+        </option>
+      </options>
+    </command>
+    <command id="package:discover" name="package:discover" hidden="0">
+      <usages>
+        <usage>package:discover</usage>
+      </usages>
+      <description>Rebuild the cached package manifest</description>
+      <help>Rebuild the cached package manifest</help>
+      <arguments/>
+      <options>
+        <option name="--help" shortcut="-h" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this help message</description>
+        </option>
+        <option name="--quiet" shortcut="-q" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not output any message</description>
+        </option>
+        <option name="--verbose" shortcut="-v" shortcuts="-v|-vv|-vvv" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</description>
+        </option>
+        <option name="--version" shortcut="-V" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this application version</description>
+        </option>
+        <option name="--ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Force ANSI output</description>
+        </option>
+        <option name="--no-ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Disable ANSI output</description>
+        </option>
+        <option name="--no-interaction" shortcut="-n" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not ask any interactive question</description>
+        </option>
+        <option name="--env" shortcut="" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>The environment the command should run under</description>
+          <defaults/>
+        </option>
+      </options>
+    </command>
+    <command id="queue:failed" name="queue:failed" hidden="0">
+      <usages>
+        <usage>queue:failed</usage>
+      </usages>
+      <description>List all of the failed queue jobs</description>
+      <help>List all of the failed queue jobs</help>
+      <arguments/>
+      <options>
+        <option name="--help" shortcut="-h" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this help message</description>
+        </option>
+        <option name="--quiet" shortcut="-q" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not output any message</description>
+        </option>
+        <option name="--verbose" shortcut="-v" shortcuts="-v|-vv|-vvv" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</description>
+        </option>
+        <option name="--version" shortcut="-V" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this application version</description>
+        </option>
+        <option name="--ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Force ANSI output</description>
+        </option>
+        <option name="--no-ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Disable ANSI output</description>
+        </option>
+        <option name="--no-interaction" shortcut="-n" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not ask any interactive question</description>
+        </option>
+        <option name="--env" shortcut="" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>The environment the command should run under</description>
+          <defaults/>
+        </option>
+      </options>
+    </command>
+    <command id="queue:failed-table" name="queue:failed-table" hidden="0">
+      <usages>
+        <usage>queue:failed-table</usage>
+      </usages>
+      <description>Create a migration for the failed queue jobs database table</description>
+      <help>Create a migration for the failed queue jobs database table</help>
+      <arguments/>
+      <options>
+        <option name="--help" shortcut="-h" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this help message</description>
+        </option>
+        <option name="--quiet" shortcut="-q" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not output any message</description>
+        </option>
+        <option name="--verbose" shortcut="-v" shortcuts="-v|-vv|-vvv" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</description>
+        </option>
+        <option name="--version" shortcut="-V" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this application version</description>
+        </option>
+        <option name="--ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Force ANSI output</description>
+        </option>
+        <option name="--no-ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Disable ANSI output</description>
+        </option>
+        <option name="--no-interaction" shortcut="-n" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not ask any interactive question</description>
+        </option>
+        <option name="--env" shortcut="" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>The environment the command should run under</description>
+          <defaults/>
+        </option>
+      </options>
+    </command>
+    <command id="queue:flush" name="queue:flush" hidden="0">
+      <usages>
+        <usage>queue:flush</usage>
+      </usages>
+      <description>Flush all of the failed queue jobs</description>
+      <help>Flush all of the failed queue jobs</help>
+      <arguments/>
+      <options>
+        <option name="--help" shortcut="-h" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this help message</description>
+        </option>
+        <option name="--quiet" shortcut="-q" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not output any message</description>
+        </option>
+        <option name="--verbose" shortcut="-v" shortcuts="-v|-vv|-vvv" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</description>
+        </option>
+        <option name="--version" shortcut="-V" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this application version</description>
+        </option>
+        <option name="--ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Force ANSI output</description>
+        </option>
+        <option name="--no-ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Disable ANSI output</description>
+        </option>
+        <option name="--no-interaction" shortcut="-n" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not ask any interactive question</description>
+        </option>
+        <option name="--env" shortcut="" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>The environment the command should run under</description>
+          <defaults/>
+        </option>
+      </options>
+    </command>
+    <command id="queue:forget" name="queue:forget" hidden="0">
+      <usages>
+        <usage>queue:forget &lt;id&gt;</usage>
+      </usages>
+      <description>Delete a failed queue job</description>
+      <help>Delete a failed queue job</help>
+      <arguments>
+        <argument name="id" is_required="1" is_array="0">
+          <description>The ID of the failed job.</description>
+          <defaults/>
+        </argument>
+      </arguments>
+      <options>
+        <option name="--help" shortcut="-h" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this help message</description>
+        </option>
+        <option name="--quiet" shortcut="-q" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not output any message</description>
+        </option>
+        <option name="--verbose" shortcut="-v" shortcuts="-v|-vv|-vvv" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</description>
+        </option>
+        <option name="--version" shortcut="-V" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this application version</description>
+        </option>
+        <option name="--ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Force ANSI output</description>
+        </option>
+        <option name="--no-ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Disable ANSI output</description>
+        </option>
+        <option name="--no-interaction" shortcut="-n" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not ask any interactive question</description>
+        </option>
+        <option name="--env" shortcut="" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>The environment the command should run under</description>
+          <defaults/>
+        </option>
+      </options>
+    </command>
+    <command id="queue:listen" name="queue:listen" hidden="0">
+      <usages>
+        <usage>queue:listen [--delay [DELAY]] [--force] [--memory [MEMORY]] [--queue [QUEUE]] [--sleep [SLEEP]] [--timeout [TIMEOUT]] [--tries [TRIES]] [--] [&lt;connection&gt;]</usage>
+      </usages>
+      <description>Listen to a given queue</description>
+      <help>Listen to a given queue</help>
+      <arguments>
+        <argument name="connection" is_required="0" is_array="0">
+          <description>The name of connection</description>
+          <defaults/>
+        </argument>
+      </arguments>
+      <options>
+        <option name="--delay" shortcut="" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>The number of seconds to delay failed jobs</description>
+          <defaults/>
+        </option>
+        <option name="--force" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Force the worker to run even in maintenance mode</description>
+        </option>
+        <option name="--memory" shortcut="" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>The memory limit in megabytes</description>
+          <defaults>
+            <default>128</default>
+          </defaults>
+        </option>
+        <option name="--queue" shortcut="" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>The queue to listen on</description>
+          <defaults/>
+        </option>
+        <option name="--sleep" shortcut="" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>Number of seconds to sleep when no job is available</description>
+          <defaults>
+            <default>3</default>
+          </defaults>
+        </option>
+        <option name="--timeout" shortcut="" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>The number of seconds a child process can run</description>
+          <defaults>
+            <default>60</default>
+          </defaults>
+        </option>
+        <option name="--tries" shortcut="" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>Number of times to attempt a job before logging it failed</description>
+          <defaults/>
+        </option>
+        <option name="--help" shortcut="-h" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this help message</description>
+        </option>
+        <option name="--quiet" shortcut="-q" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not output any message</description>
+        </option>
+        <option name="--verbose" shortcut="-v" shortcuts="-v|-vv|-vvv" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</description>
+        </option>
+        <option name="--version" shortcut="-V" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this application version</description>
+        </option>
+        <option name="--ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Force ANSI output</description>
+        </option>
+        <option name="--no-ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Disable ANSI output</description>
+        </option>
+        <option name="--no-interaction" shortcut="-n" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not ask any interactive question</description>
+        </option>
+        <option name="--env" shortcut="" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>The environment the command should run under</description>
+          <defaults/>
+        </option>
+      </options>
+    </command>
+    <command id="queue:restart" name="queue:restart" hidden="0">
+      <usages>
+        <usage>queue:restart</usage>
+      </usages>
+      <description>Restart queue worker daemons after their current job</description>
+      <help>Restart queue worker daemons after their current job</help>
+      <arguments/>
+      <options>
+        <option name="--help" shortcut="-h" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this help message</description>
+        </option>
+        <option name="--quiet" shortcut="-q" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not output any message</description>
+        </option>
+        <option name="--verbose" shortcut="-v" shortcuts="-v|-vv|-vvv" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</description>
+        </option>
+        <option name="--version" shortcut="-V" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this application version</description>
+        </option>
+        <option name="--ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Force ANSI output</description>
+        </option>
+        <option name="--no-ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Disable ANSI output</description>
+        </option>
+        <option name="--no-interaction" shortcut="-n" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not ask any interactive question</description>
+        </option>
+        <option name="--env" shortcut="" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>The environment the command should run under</description>
+          <defaults/>
+        </option>
+      </options>
+    </command>
+    <command id="queue:retry" name="queue:retry" hidden="0">
+      <usages>
+        <usage>queue:retry &lt;id&gt; (&lt;id&gt;)...</usage>
+      </usages>
+      <description>Retry a failed queue job</description>
+      <help>Retry a failed queue job</help>
+      <arguments>
+        <argument name="id" is_required="1" is_array="1">
+          <description>The ID of the failed job.</description>
+          <defaults/>
+        </argument>
+      </arguments>
+      <options>
+        <option name="--help" shortcut="-h" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this help message</description>
+        </option>
+        <option name="--quiet" shortcut="-q" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not output any message</description>
+        </option>
+        <option name="--verbose" shortcut="-v" shortcuts="-v|-vv|-vvv" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</description>
+        </option>
+        <option name="--version" shortcut="-V" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this application version</description>
+        </option>
+        <option name="--ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Force ANSI output</description>
+        </option>
+        <option name="--no-ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Disable ANSI output</description>
+        </option>
+        <option name="--no-interaction" shortcut="-n" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not ask any interactive question</description>
+        </option>
+        <option name="--env" shortcut="" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>The environment the command should run under</description>
+          <defaults/>
+        </option>
+      </options>
+    </command>
+    <command id="queue:table" name="queue:table" hidden="0">
+      <usages>
+        <usage>queue:table</usage>
+      </usages>
+      <description>Create a migration for the queue jobs database table</description>
+      <help>Create a migration for the queue jobs database table</help>
+      <arguments/>
+      <options>
+        <option name="--help" shortcut="-h" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this help message</description>
+        </option>
+        <option name="--quiet" shortcut="-q" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not output any message</description>
+        </option>
+        <option name="--verbose" shortcut="-v" shortcuts="-v|-vv|-vvv" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</description>
+        </option>
+        <option name="--version" shortcut="-V" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this application version</description>
+        </option>
+        <option name="--ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Force ANSI output</description>
+        </option>
+        <option name="--no-ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Disable ANSI output</description>
+        </option>
+        <option name="--no-interaction" shortcut="-n" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not ask any interactive question</description>
+        </option>
+        <option name="--env" shortcut="" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>The environment the command should run under</description>
+          <defaults/>
+        </option>
+      </options>
+    </command>
+    <command id="queue:work" name="queue:work" hidden="0">
+      <usages>
+        <usage>queue:work [--queue [QUEUE]] [--daemon] [--once] [--delay [DELAY]] [--force] [--memory [MEMORY]] [--sleep [SLEEP]] [--timeout [TIMEOUT]] [--tries [TRIES]] [--] [&lt;connection&gt;]</usage>
+      </usages>
+      <description>Start processing jobs on the queue as a daemon</description>
+      <help>Start processing jobs on the queue as a daemon</help>
+      <arguments>
+        <argument name="connection" is_required="0" is_array="0">
+          <description>The name of the queue connection to work</description>
+          <defaults/>
+        </argument>
+      </arguments>
+      <options>
+        <option name="--queue" shortcut="" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>The names of the queues to work</description>
+          <defaults/>
+        </option>
+        <option name="--daemon" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Run the worker in daemon mode (Deprecated)</description>
+        </option>
+        <option name="--once" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Only process the next job on the queue</description>
+        </option>
+        <option name="--delay" shortcut="" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>The number of seconds to delay failed jobs</description>
+          <defaults/>
+        </option>
+        <option name="--force" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Force the worker to run even in maintenance mode</description>
+        </option>
+        <option name="--memory" shortcut="" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>The memory limit in megabytes</description>
+          <defaults>
+            <default>128</default>
+          </defaults>
+        </option>
+        <option name="--sleep" shortcut="" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>Number of seconds to sleep when no job is available</description>
+          <defaults>
+            <default>3</default>
+          </defaults>
+        </option>
+        <option name="--timeout" shortcut="" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>The number of seconds a child process can run</description>
+          <defaults>
+            <default>60</default>
+          </defaults>
+        </option>
+        <option name="--tries" shortcut="" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>Number of times to attempt a job before logging it failed</description>
+          <defaults/>
+        </option>
+        <option name="--help" shortcut="-h" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this help message</description>
+        </option>
+        <option name="--quiet" shortcut="-q" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not output any message</description>
+        </option>
+        <option name="--verbose" shortcut="-v" shortcuts="-v|-vv|-vvv" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</description>
+        </option>
+        <option name="--version" shortcut="-V" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this application version</description>
+        </option>
+        <option name="--ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Force ANSI output</description>
+        </option>
+        <option name="--no-ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Disable ANSI output</description>
+        </option>
+        <option name="--no-interaction" shortcut="-n" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not ask any interactive question</description>
+        </option>
+        <option name="--env" shortcut="" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>The environment the command should run under</description>
+          <defaults/>
+        </option>
+      </options>
+    </command>
+    <command id="route:cache" name="route:cache" hidden="0">
+      <usages>
+        <usage>route:cache</usage>
+      </usages>
+      <description>Create a route cache file for faster route registration</description>
+      <help>Create a route cache file for faster route registration</help>
+      <arguments/>
+      <options>
+        <option name="--help" shortcut="-h" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this help message</description>
+        </option>
+        <option name="--quiet" shortcut="-q" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not output any message</description>
+        </option>
+        <option name="--verbose" shortcut="-v" shortcuts="-v|-vv|-vvv" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</description>
+        </option>
+        <option name="--version" shortcut="-V" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this application version</description>
+        </option>
+        <option name="--ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Force ANSI output</description>
+        </option>
+        <option name="--no-ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Disable ANSI output</description>
+        </option>
+        <option name="--no-interaction" shortcut="-n" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not ask any interactive question</description>
+        </option>
+        <option name="--env" shortcut="" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>The environment the command should run under</description>
+          <defaults/>
+        </option>
+      </options>
+    </command>
+    <command id="route:clear" name="route:clear" hidden="0">
+      <usages>
+        <usage>route:clear</usage>
+      </usages>
+      <description>Remove the route cache file</description>
+      <help>Remove the route cache file</help>
+      <arguments/>
+      <options>
+        <option name="--help" shortcut="-h" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this help message</description>
+        </option>
+        <option name="--quiet" shortcut="-q" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not output any message</description>
+        </option>
+        <option name="--verbose" shortcut="-v" shortcuts="-v|-vv|-vvv" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</description>
+        </option>
+        <option name="--version" shortcut="-V" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this application version</description>
+        </option>
+        <option name="--ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Force ANSI output</description>
+        </option>
+        <option name="--no-ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Disable ANSI output</description>
+        </option>
+        <option name="--no-interaction" shortcut="-n" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not ask any interactive question</description>
+        </option>
+        <option name="--env" shortcut="" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>The environment the command should run under</description>
+          <defaults/>
+        </option>
+      </options>
+    </command>
+    <command id="route:list" name="route:list" hidden="0">
+      <usages>
+        <usage>route:list [--method [METHOD]] [--name [NAME]] [--path [PATH]] [-r|--reverse] [--sort [SORT]]</usage>
+      </usages>
+      <description>List all registered routes</description>
+      <help>List all registered routes</help>
+      <arguments/>
+      <options>
+        <option name="--method" shortcut="" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>Filter the routes by method.</description>
+          <defaults/>
+        </option>
+        <option name="--name" shortcut="" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>Filter the routes by name.</description>
+          <defaults/>
+        </option>
+        <option name="--path" shortcut="" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>Filter the routes by path.</description>
+          <defaults/>
+        </option>
+        <option name="--reverse" shortcut="-r" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Reverse the ordering of the routes.</description>
+        </option>
+        <option name="--sort" shortcut="" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>The column (host, method, uri, name, action, middleware) to sort by.</description>
+          <defaults>
+            <default>uri</default>
+          </defaults>
+        </option>
+        <option name="--help" shortcut="-h" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this help message</description>
+        </option>
+        <option name="--quiet" shortcut="-q" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not output any message</description>
+        </option>
+        <option name="--verbose" shortcut="-v" shortcuts="-v|-vv|-vvv" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</description>
+        </option>
+        <option name="--version" shortcut="-V" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this application version</description>
+        </option>
+        <option name="--ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Force ANSI output</description>
+        </option>
+        <option name="--no-ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Disable ANSI output</description>
+        </option>
+        <option name="--no-interaction" shortcut="-n" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not ask any interactive question</description>
+        </option>
+        <option name="--env" shortcut="" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>The environment the command should run under</description>
+          <defaults/>
+        </option>
+      </options>
+    </command>
+    <command id="schedule:finish" name="schedule:finish" hidden="1">
+      <usages>
+        <usage>schedule:finish &lt;id&gt;</usage>
+      </usages>
+      <description>Handle the completion of a scheduled command</description>
+      <help>Handle the completion of a scheduled command</help>
+      <arguments>
+        <argument name="id" is_required="1" is_array="0">
+          <description></description>
+          <defaults/>
+        </argument>
+      </arguments>
+      <options>
+        <option name="--help" shortcut="-h" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this help message</description>
+        </option>
+        <option name="--quiet" shortcut="-q" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not output any message</description>
+        </option>
+        <option name="--verbose" shortcut="-v" shortcuts="-v|-vv|-vvv" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</description>
+        </option>
+        <option name="--version" shortcut="-V" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this application version</description>
+        </option>
+        <option name="--ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Force ANSI output</description>
+        </option>
+        <option name="--no-ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Disable ANSI output</description>
+        </option>
+        <option name="--no-interaction" shortcut="-n" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not ask any interactive question</description>
+        </option>
+        <option name="--env" shortcut="" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>The environment the command should run under</description>
+          <defaults/>
+        </option>
+      </options>
+    </command>
+    <command id="schedule:run" name="schedule:run" hidden="0">
+      <usages>
+        <usage>schedule:run</usage>
+      </usages>
+      <description>Run the scheduled commands</description>
+      <help>Run the scheduled commands</help>
+      <arguments/>
+      <options>
+        <option name="--help" shortcut="-h" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this help message</description>
+        </option>
+        <option name="--quiet" shortcut="-q" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not output any message</description>
+        </option>
+        <option name="--verbose" shortcut="-v" shortcuts="-v|-vv|-vvv" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</description>
+        </option>
+        <option name="--version" shortcut="-V" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this application version</description>
+        </option>
+        <option name="--ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Force ANSI output</description>
+        </option>
+        <option name="--no-ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Disable ANSI output</description>
+        </option>
+        <option name="--no-interaction" shortcut="-n" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not ask any interactive question</description>
+        </option>
+        <option name="--env" shortcut="" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>The environment the command should run under</description>
+          <defaults/>
+        </option>
+      </options>
+    </command>
+    <command id="session:table" name="session:table" hidden="0">
+      <usages>
+        <usage>session:table</usage>
+      </usages>
+      <description>Create a migration for the session database table</description>
+      <help>Create a migration for the session database table</help>
+      <arguments/>
+      <options>
+        <option name="--help" shortcut="-h" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this help message</description>
+        </option>
+        <option name="--quiet" shortcut="-q" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not output any message</description>
+        </option>
+        <option name="--verbose" shortcut="-v" shortcuts="-v|-vv|-vvv" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</description>
+        </option>
+        <option name="--version" shortcut="-V" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this application version</description>
+        </option>
+        <option name="--ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Force ANSI output</description>
+        </option>
+        <option name="--no-ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Disable ANSI output</description>
+        </option>
+        <option name="--no-interaction" shortcut="-n" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not ask any interactive question</description>
+        </option>
+        <option name="--env" shortcut="" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>The environment the command should run under</description>
+          <defaults/>
+        </option>
+      </options>
+    </command>
+    <command id="storage:link" name="storage:link" hidden="0">
+      <usages>
+        <usage>storage:link</usage>
+      </usages>
+      <description>Create a symbolic link from "public/storage" to "storage/app/public"</description>
+      <help>Create a symbolic link from "public/storage" to "storage/app/public"</help>
+      <arguments/>
+      <options>
+        <option name="--help" shortcut="-h" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this help message</description>
+        </option>
+        <option name="--quiet" shortcut="-q" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not output any message</description>
+        </option>
+        <option name="--verbose" shortcut="-v" shortcuts="-v|-vv|-vvv" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</description>
+        </option>
+        <option name="--version" shortcut="-V" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this application version</description>
+        </option>
+        <option name="--ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Force ANSI output</description>
+        </option>
+        <option name="--no-ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Disable ANSI output</description>
+        </option>
+        <option name="--no-interaction" shortcut="-n" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not ask any interactive question</description>
+        </option>
+        <option name="--env" shortcut="" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>The environment the command should run under</description>
+          <defaults/>
+        </option>
+      </options>
+    </command>
+    <command id="vendor:publish" name="vendor:publish" hidden="0">
+      <usages>
+        <usage>vendor:publish [--force] [--all] [--provider [PROVIDER]] [--tag [TAG]]</usage>
+      </usages>
+      <description>Publish any publishable assets from vendor packages</description>
+      <help>Publish any publishable assets from vendor packages</help>
+      <arguments/>
+      <options>
+        <option name="--force" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Overwrite any existing files.</description>
+        </option>
+        <option name="--all" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Publish assets for all service providers without prompt.</description>
+        </option>
+        <option name="--provider" shortcut="" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>The service provider that has assets you want to publish.</description>
+          <defaults/>
+        </option>
+        <option name="--tag" shortcut="" accept_value="1" is_value_required="0" is_multiple="1">
+          <description>One or many tags that have assets you want to publish.</description>
+          <defaults/>
+        </option>
+        <option name="--help" shortcut="-h" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this help message</description>
+        </option>
+        <option name="--quiet" shortcut="-q" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not output any message</description>
+        </option>
+        <option name="--verbose" shortcut="-v" shortcuts="-v|-vv|-vvv" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</description>
+        </option>
+        <option name="--version" shortcut="-V" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this application version</description>
+        </option>
+        <option name="--ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Force ANSI output</description>
+        </option>
+        <option name="--no-ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Disable ANSI output</description>
+        </option>
+        <option name="--no-interaction" shortcut="-n" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not ask any interactive question</description>
+        </option>
+        <option name="--env" shortcut="" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>The environment the command should run under</description>
+          <defaults/>
+        </option>
+      </options>
+    </command>
+    <command id="view:clear" name="view:clear" hidden="0">
+      <usages>
+        <usage>view:clear</usage>
+      </usages>
+      <description>Clear all compiled view files</description>
+      <help>Clear all compiled view files</help>
+      <arguments/>
+      <options>
+        <option name="--help" shortcut="-h" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this help message</description>
+        </option>
+        <option name="--quiet" shortcut="-q" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not output any message</description>
+        </option>
+        <option name="--verbose" shortcut="-v" shortcuts="-v|-vv|-vvv" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</description>
+        </option>
+        <option name="--version" shortcut="-V" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Display this application version</description>
+        </option>
+        <option name="--ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Force ANSI output</description>
+        </option>
+        <option name="--no-ansi" shortcut="" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Disable ANSI output</description>
+        </option>
+        <option name="--no-interaction" shortcut="-n" accept_value="0" is_value_required="0" is_multiple="0">
+          <description>Do not ask any interactive question</description>
+        </option>
+        <option name="--env" shortcut="" accept_value="1" is_value_required="0" is_multiple="0">
+          <description>The environment the command should run under</description>
+          <defaults/>
+        </option>
+      </options>
+    </command>
+  </commands>
+  <namespaces>
+    <namespace id="_global">
+      <command>clear-compiled</command>
+      <command>down</command>
+      <command>env</command>
+      <command>help</command>
+      <command>inspire</command>
+      <command>list</command>
+      <command>migrate</command>
+      <command>optimize</command>
+      <command>preset</command>
+      <command>serve</command>
+      <command>tinker</command>
+      <command>up</command>
+    </namespace>
+    <namespace id="app">
+      <command>app:name</command>
+    </namespace>
+    <namespace id="auth">
+      <command>auth:clear-resets</command>
+    </namespace>
+    <namespace id="cache">
+      <command>cache:clear</command>
+      <command>cache:forget</command>
+      <command>cache:table</command>
+    </namespace>
+    <namespace id="config">
+      <command>config:cache</command>
+      <command>config:clear</command>
+    </namespace>
+    <namespace id="db">
+      <command>db:seed</command>
+    </namespace>
+    <namespace id="event">
+      <command>event:generate</command>
+    </namespace>
+    <namespace id="ide-helper">
+      <command>ide-helper:generate</command>
+      <command>ide-helper:meta</command>
+      <command>ide-helper:models</command>
+    </namespace>
+    <namespace id="key">
+      <command>key:generate</command>
+    </namespace>
+    <namespace id="make">
+      <command>make:auth</command>
+      <command>make:command</command>
+      <command>make:controller</command>
+      <command>make:event</command>
+      <command>make:exception</command>
+      <command>make:factory</command>
+      <command>make:job</command>
+      <command>make:listener</command>
+      <command>make:mail</command>
+      <command>make:middleware</command>
+      <command>make:migration</command>
+      <command>make:model</command>
+      <command>make:notification</command>
+      <command>make:policy</command>
+      <command>make:provider</command>
+      <command>make:request</command>
+      <command>make:resource</command>
+      <command>make:rule</command>
+      <command>make:seeder</command>
+      <command>make:test</command>
+    </namespace>
+    <namespace id="migrate">
+      <command>migrate:fresh</command>
+      <command>migrate:install</command>
+      <command>migrate:refresh</command>
+      <command>migrate:reset</command>
+      <command>migrate:rollback</command>
+      <command>migrate:status</command>
+    </namespace>
+    <namespace id="notifications">
+      <command>notifications:table</command>
+    </namespace>
+    <namespace id="package">
+      <command>package:discover</command>
+    </namespace>
+    <namespace id="queue">
+      <command>queue:failed</command>
+      <command>queue:failed-table</command>
+      <command>queue:flush</command>
+      <command>queue:forget</command>
+      <command>queue:listen</command>
+      <command>queue:restart</command>
+      <command>queue:retry</command>
+      <command>queue:table</command>
+      <command>queue:work</command>
+    </namespace>
+    <namespace id="route">
+      <command>route:cache</command>
+      <command>route:clear</command>
+      <command>route:list</command>
+    </namespace>
+    <namespace id="schedule">
+      <command>schedule:finish</command>
+      <command>schedule:run</command>
+    </namespace>
+    <namespace id="session">
+      <command>session:table</command>
+    </namespace>
+    <namespace id="storage">
+      <command>storage:link</command>
+    </namespace>
+    <namespace id="vendor">
+      <command>vendor:publish</command>
+    </namespace>
+    <namespace id="view">
+      <command>view:clear</command>
+    </namespace>
+  </namespaces>
+</symfony>
